@@ -6,6 +6,11 @@ package com.example.gxkj.cardnumbinding.bean;
 
 
 public class HttpResponse<T> {
+    private int status;
+    private String msg;
+    private T data;
+    private boolean success;
+
     public int getStatus() {
         return status;
     }
@@ -18,9 +23,13 @@ public class HttpResponse<T> {
         return data;
     }
 
-    private int status;
-    private String msg;
-    private T data;
+    public boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
     public void setStatus(int status) {
         this.status = status;

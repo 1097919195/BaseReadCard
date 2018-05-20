@@ -15,7 +15,12 @@ import android.widget.TextView;
 
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
+import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.contract.UploadCardNumContract;
+import com.example.gxkj.cardnumbinding.model.UploadCardNumModel;
+import com.example.gxkj.cardnumbinding.presenter.UploadCardNumPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
+import com.jaydenxiao.common.commonutils.ToastUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,7 +35,7 @@ import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_UsbDeviceConnection;
 
-public class MainActivity extends BaseActivity implements ILotusCallBack {
+public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCardNumModel> implements ILotusCallBack ,UploadCardNumContract.View {
 
     private LotusCardDriver mLotusCardDriver;
     private UsbManager usbManager = null;
@@ -70,7 +75,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
 
     @Override
     public void initPresenter() {
-
+        mPresenter.setVM(this, mModel);
     }
 
     @Override
@@ -101,7 +106,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
                     Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
                     String strDate = formatter.format(curDate);
                     displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
-//                    mPresenter.getQualityDataRequest("59f171090246a35c424dcec5");
+                    mPresenter.uploadCardNumRequest(msg.obj.toString());
 //                    flag = false;
                 }
             }
@@ -221,7 +226,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
 
                         //如果失败了则sleep跳出,再循环
                         if (!bResult) {
-                            Thread.sleep(500);
+                            Thread.sleep(200);
                             continue;
                         }
 
@@ -324,9 +329,30 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
     public void AddLog(String strLog) {
     }
 
+    //卡号上传返回
+    @Override
+    public void returnUploadCardNumData(HttpResponse httpResponse) {
+        ToastUtil.showShort(httpResponse.getMsg());
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         flag = false;
+    }
+
+    @Override
+    public void showLoading(String title) {
+
+    }
+
+    @Override
+    public void stopLoading() {
+
+    }
+
+    @Override
+    public void showErrorTip(String msg) {
+        ToastUtil.showShort(msg);
     }
 }

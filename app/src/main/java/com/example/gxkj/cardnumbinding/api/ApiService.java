@@ -1,6 +1,8 @@
 package com.example.gxkj.cardnumbinding.api;
 
 
+import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+
 import java.util.ArrayList;
 
 import io.reactivex.Observable;
@@ -98,5 +100,11 @@ public interface ApiService {
 //    Observable<HttpResponse<ArrayList<QualityData.Parts>>> getQualitySample(
 //            @Query("content") String id
 //    );
+
+    @FormUrlEncoded
+    @POST("api/cards")
+    Observable<HttpResponse> uploadCardNum(
+            @Field("card_num") String num
+    );
 
 }

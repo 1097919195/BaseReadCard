@@ -3,21 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/gxkj_logo"
     tools:context="com.example.gxkj.cardnumbinding.activity.MainActivity">
 
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/m_tvDeviceNode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="未连接" />
-    <TextView
-        android:layout_below="@+id/m_tvDeviceNode"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/displayCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="卡号" />
+        <TextView
+            android:layout_above="@+id/displayCard"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/m_tvDeviceNode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未连接"
+            android:textSize="25sp"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/displayCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卡号"
+            android:textSize="25sp"
+            android:layout_marginBottom="15dp"/>
 
 </RelativeLayout>
