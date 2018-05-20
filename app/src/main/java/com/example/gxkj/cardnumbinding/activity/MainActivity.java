@@ -10,12 +10,24 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
+import com.example.gxkj.cardnumbinding.app.AppConstant;
+import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.contract.BindingContract;
+import com.example.gxkj.cardnumbinding.model.BindingModel;
+import com.example.gxkj.cardnumbinding.presenter.BindingPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
+import com.jaydenxiao.common.commonutils.LogUtils;
+import com.jaydenxiao.common.commonutils.ToastUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,7 +42,7 @@ import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_UsbDeviceConnection;
 
-public class MainActivity extends BaseActivity implements ILotusCallBack {
+public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> implements ILotusCallBack ,BindingContract.View{
 
     private LotusCardDriver mLotusCardDriver;
     private UsbManager usbManager = null;
@@ -61,6 +73,32 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
     TextView displayCard;
     @BindView(R.id.m_tvDeviceNode)
     TextView m_tvDeviceNode;
+    @BindView(R.id.btnScan)
+    Button btnScan;
+    @BindView(R.id.name)
+    TextView name;
+    @BindView(R.id.num)
+    TextView num;
+    @BindView(R.id.spec)
+    TextView spec;
+    @BindView(R.id.ban_xing)
+    TextView ban_xing;
+    @BindView(R.id.type)
+    TextView type;
+    @BindView(R.id.size)
+    TextView size;
+    @BindView(R.id.color)
+    TextView color;
+    @BindView(R.id.fabric)
+    TextView fabric;
+    @BindView(R.id.style)
+    TextView style;
+    @BindView(R.id.profile)
+    TextView profile;
+    @BindView(R.id.retailPrice)
+    TextView retailPrice;
+    @BindView(R.id.commit)
+    Button commit;
     private Boolean flag = false;
 
     @Override
@@ -70,7 +108,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
 
     @Override
     public void initPresenter() {
-
+        mPresenter.setVM(this,mModel);
     }
 
     @Override
@@ -89,7 +127,19 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
         //测卡器设备检测
         cardDeviceChecked();
         initHandleCardDetails();
+        initListener();
     }
+
+    private void initListener() {
+        btnScan.setOnClickListener(v -> {
+            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+        });
+
+        commit.setOnClickListener(v -> {
+            mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
+        });
+    }
+
 
     private void initHandleCardDetails() {
         mHandler = new Handler() {
@@ -100,6 +150,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
                     SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                     Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
                     String strDate = formatter.format(curDate);
+                    AppConstant.CARD_NUMBER = msg.obj.toString();
                     displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
 //                    mPresenter.getQualityDataRequest("59f171090246a35c424dcec5");
 //                    flag = false;
@@ -324,9 +375,48 @@ public class MainActivity extends BaseActivity implements ILotusCallBack {
     public void AddLog(String strLog) {
     }
 
+    //返回获取的样衣数据
+    @Override
+    public void returnGetSampleData(FinishedProductSampleData sampleData) {
+        name.setText(sampleData.getName());
+        num.setText(sampleData.getNum());
+        spec.setText(String.valueOf(sampleData.getSpec()));
+        ban_xing.setText(String.valueOf(sampleData.getBan_xing()));
+        type.setText(String.valueOf(sampleData.getType()));
+        size.setText(sampleData.getSize());
+        color.setText(sampleData.getColor());
+        fabric.setText(sampleData.getFabric());
+        style.setText(sampleData.getStyle());
+        profile.setText(sampleData.getProfile());
+        retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
+
+        AppConstant.SAMPLE_ID = sampleData.get_id();
+    }
+
+    //办卡成功返回
+    @Override
+    public void returnBindingCardWithCode(HttpResponse httpResponse) {
+        ToastUtil.showShort(httpResponse.getMsg());
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         flag = false;
+    }
+
+    @Override
+    public void showLoading(String title) {
+
+    }
+
+    @Override
+    public void stopLoading() {
+
+    }
+
+    @Override
+    public void showErrorTip(String msg) {
+        ToastUtil.showShort(msg);
     }
 }

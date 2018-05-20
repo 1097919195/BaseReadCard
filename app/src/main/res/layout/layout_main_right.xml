@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="15dp"
+    android:layout_marginStart="15dp">
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/m_tvDeviceNode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未连接" />
+    <TextView
+        android:layout_below="@+id/m_tvDeviceNode"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/displayCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡号" />
+
+    <Button
+        android:layout_below="@+id/displayCard"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="do" />
+
+    <Button
+        android:layout_below="@+id/btnScan"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="绑定" />
+
+
+</RelativeLayout>

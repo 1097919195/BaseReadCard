@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/common" />
+            <option value="$PROJECT_DIR$/library/irecyclerview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

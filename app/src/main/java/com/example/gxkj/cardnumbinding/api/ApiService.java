@@ -1,6 +1,9 @@
 package com.example.gxkj.cardnumbinding.api;
 
 
+import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+
 import java.util.ArrayList;
 
 import io.reactivex.Observable;
@@ -93,10 +96,18 @@ public interface ApiService {
 //            @Path("id") String id
 //    );
 //
-//    //质检样衣
-//    @GET("api/third/samples/parts")
-//    Observable<HttpResponse<ArrayList<QualityData.Parts>>> getQualitySample(
-//            @Query("content") String id
-//    );
+
+    //获取样衣详情
+    @GET("api/third/samples/parts")
+    Observable<HttpResponse<FinishedProductSampleData>> getSampleData(
+            @Query("content") String id
+    );
+
+    @FormUrlEncoded
+    @POST("api/third/samples/bind_card")
+    Observable<HttpResponse> bindingCardWithCode(
+            @Field("card_num") String num,
+            @Field("clothes_id") String id
+    );
 
 }
