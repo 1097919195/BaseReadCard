@@ -1,6 +1,7 @@
 package com.example.gxkj.cardnumbinding.activity;
 
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
@@ -109,6 +110,11 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     @BindView(R.id.imgWithSample)
     ImageView imgWithSample;
     private Boolean flag = false;
+
+    public static void startActivity(Context mContext) {
+        Intent intent = new Intent(mContext, MainActivity.class);
+        mContext.startActivity(intent);
+    }
 
     @Override
     public int getLayoutId() {

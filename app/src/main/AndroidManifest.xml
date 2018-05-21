@@ -35,7 +35,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.AccountActivity"
             android:launchMode="singleTop"
             android:alwaysRetainTaskState="true"
             android:windowSoftInputMode="stateAlwaysHidden"
@@ -46,6 +46,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTop"
+            android:alwaysRetainTaskState="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize">
+            >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
             </intent-filter>

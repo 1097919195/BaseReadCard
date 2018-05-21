@@ -103,11 +103,20 @@ public interface ApiService {
             @Query("content") String id
     );
 
+    //绑定卡号上传
     @FormUrlEncoded
     @POST("api/third/samples/bind_card")
     Observable<HttpResponse> bindingCardWithCode(
             @Field("card_num") String num,
             @Field("clothes_id") String id
+    );
+
+    //绑定卡号上传
+    @FormUrlEncoded
+    @POST("api/third/login")
+    Observable<HttpResponse> getTokenWithSignIn(
+            @Field("username") String username,
+            @Field("password") String password
     );
 
 }
