@@ -57,6 +57,9 @@
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
+
+        <activity android:name="com.example.gxkj.cardnumbinding.camera.CaptureActivity" />
+
     </application>
 
 </manifest>

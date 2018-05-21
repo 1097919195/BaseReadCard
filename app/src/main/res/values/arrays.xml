@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="genders">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string-array name="country_codes" tools:ignore="MissingTranslation">
+        <item>-</item>
+        <item>AR</item>
+        <item>AU</item>
+        <item>BR</item>
+        <item>BG</item>
+        <item>CA</item>
+        <item>CH</item>
+        <item>CN</item>
+        <item>CZ</item>
+        <item>DE</item>
+        <item>DK</item>
+        <item>ES</item>
+        <item>FI</item>
+        <item>FR</item>
+        <item>GB</item>
+        <item>GR</item>
+        <item>HU</item>
+        <item>ID</item>
+        <item>IT</item>
+        <item>JP</item>
+        <item>KR</item>
+        <item>NL</item>
+        <item>PL</item>
+        <item>PT</item>
+        <item>RO</item>
+        <item>RU</item>
+        <item>SE</item>
+        <item>SK</item>
+        <item>SI</item>
+        <item>TR</item>
+        <item>TW</item>
+        <item>US</item>
+    </string-array>
+    <string-array name="preferences_front_light_values" tools:ignore="MissingTranslation">
+        <item>ON</item>
+        <item>AUTO</item>
+        <item>OFF</item>
+    </string-array>
+    <string-array name="preferences_front_light_options">
+        <item>@string/preferences_front_light_on</item>
+        <item>@string/preferences_front_light_auto</item>
+        <item>@string/preferences_front_light_off</item>
+    </string-array>
+    <string-array name="picType">
+        <item>拍照选取</item>
+        <item>照相选取</item>
+    </string-array>
+    <string-array name="angle_items">
+        <item>左肩斜</item>
+        <item>右肩斜</item>
+        <item>弯背角度</item>
+        <item>凹腰角度</item>
+        <item>上凸肚角度</item>
+        <item>下凸肚角度</item>
+        <item>上凸肚角</item>
+        <item>下凸肚角</item>
+        <item>上凸臀角</item>
+        <item>下凸臀角</item>
+        <item>上胸凸角</item>
+        <item>下胸凸角</item>
+        <item>左臀凸角</item>
+        <item>右臀凸角</item>
+        <item>左胸凸角</item>
+        <item>右胸凸角</item>
+    </string-array>
+    <string-array name="items_sequence">
+        <item>头围</item>
+        <item>颈围</item>
+        <item>肩宽</item>
+        <item>左肩斜</item>
+        <item>右肩斜</item>
+        <item>弯背角度</item>
+        <item>臂围</item>
+        <item>手腕围</item>
+        <item>臂长</item>
+        <item>胸围</item>
+        <item>下胸围</item>
+        <item> 肚围</item>
+        <item>腰围</item>
+        <item>凹腰角度</item>
+        <item>上凸肚角度</item>
+        <item>下凸肚角度</item>
+        <item>臀围</item>
+        <item>大腿围</item>
+        <item>中部大腿围</item>
+        <item>膝围</item>
+        <item>小腿围</item>
+        <item>脚踝围</item>
+        <item>通裆</item>
+        <item>髂骨高度</item>
+    </string-array>
+</resources>

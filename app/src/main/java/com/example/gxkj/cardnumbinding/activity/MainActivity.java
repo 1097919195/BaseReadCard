@@ -6,6 +6,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.example.gxkj.cardnumbinding.app.AppApplication;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
 import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
 import com.example.gxkj.cardnumbinding.contract.BindingContract;
 import com.example.gxkj.cardnumbinding.model.BindingModel;
 import com.example.gxkj.cardnumbinding.presenter.BindingPresenter;
@@ -150,7 +152,9 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
 
     private void initListener() {
         btnScan.setOnClickListener(v -> {
-            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+            Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+            startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
+//            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
         });
 
         commit.setOnClickListener(v -> {
@@ -400,6 +404,38 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
         return bResult;
     }
     public void AddLog(String strLog) {
+    }
+
+    //获取二维码扫描结果处理
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        LogUtils.loge(String.valueOf(requestCode)+"   "+String.valueOf(resultCode));
+        if (requestCode == REQUEST_CODE_WECHATUSER) {
+            if (data != null) {
+                Bundle bundle = data.getExtras();
+                String result = bundle.getString("result");
+                switch (resultCode) {
+                    case SCAN_HINT:
+                        if (result != null) {
+                            LogUtils.loge("二维码解析====" + result);
+                            if (result.contains("http")) {
+                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+                            }else {
+                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+                            }
+                        } else {
+                            ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
+                        }
+                        break;
+                    case CODE_HINT:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
     }
 
     //返回获取的样衣数据
