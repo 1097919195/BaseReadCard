@@ -69,7 +69,7 @@ public class FinishedProductSampleData {
         this.num = num;
     }
 
-    public Object getSpec() {
+    public String getSpec() {
         return spec;
     }
 
@@ -77,7 +77,7 @@ public class FinishedProductSampleData {
         this.spec = spec;
     }
 
-    public Object getBan_xing() {
+    public String getBan_xing() {
         return ban_xing;
     }
 

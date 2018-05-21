@@ -9,9 +9,11 @@ import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gxkj.cardnumbinding.R;
@@ -23,6 +25,8 @@ import com.example.gxkj.cardnumbinding.contract.BindingContract;
 import com.example.gxkj.cardnumbinding.model.BindingModel;
 import com.example.gxkj.cardnumbinding.presenter.BindingPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
+import com.jaydenxiao.common.baserx.RxBus2;
+import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
 
@@ -37,6 +41,7 @@ import butterknife.BindView;
 import cc.lotuscard.ILotusCallBack;
 import cc.lotuscard.LotusCardDriver;
 import cc.lotuscard.LotusCardParam;
+import io.reactivex.functions.Consumer;
 
 import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
@@ -99,6 +104,8 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     TextView retailPrice;
     @BindView(R.id.commit)
     Button commit;
+    @BindView(R.id.imgWithSample)
+    ImageView imgWithSample;
     private Boolean flag = false;
 
     @Override
@@ -120,6 +127,7 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     @Override
     public void initView() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);//底部导航栏覆盖activity
         mLotusCardDriver = new LotusCardDriver();
         mLotusCardDriver.m_lotusCallBack = this;
         // 设置USB读写回调 串口可以不用此操作
@@ -128,6 +136,16 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
         cardDeviceChecked();
         initHandleCardDetails();
         initListener();
+        initRxBus2WithSamplePhoto();
+    }
+
+    private void initRxBus2WithSamplePhoto() {
+        mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
+            @Override
+            public void accept(String imgStr) throws Exception {
+                ImageLoaderUtils.displayBigPhoto(mContext,imgWithSample,imgStr);
+            }
+        });
     }
 
     private void initListener() {
@@ -136,7 +154,16 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
         });
 
         commit.setOnClickListener(v -> {
-            mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
+            if (!AppConstant.CARD_NUMBER.equals("")) {
+                if (!AppConstant.SAMPLE_ID.equals("")) {
+                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
+                }else {
+                    ToastUtil.showShort("请先确认产品");
+                }
+            }else {
+             ToastUtil.showShort("当前卡号为空");
+            }
+
         });
     }
 
@@ -380,8 +407,8 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     public void returnGetSampleData(FinishedProductSampleData sampleData) {
         name.setText(sampleData.getName());
         num.setText(sampleData.getNum());
-        spec.setText(String.valueOf(sampleData.getSpec()));
-        ban_xing.setText(String.valueOf(sampleData.getBan_xing()));
+        spec.setText(sampleData.getSpec());
+        ban_xing.setText(sampleData.getBan_xing());
         type.setText(String.valueOf(sampleData.getType()));
         size.setText(sampleData.getSize());
         color.setText(sampleData.getColor());
@@ -391,11 +418,15 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
         retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
 
         AppConstant.SAMPLE_ID = sampleData.get_id();
+        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
     }
 
     //办卡成功返回
     @Override
     public void returnBindingCardWithCode(HttpResponse httpResponse) {
+        AppConstant.CARD_NUMBER = "";
+        displayCard.setText("请刷卡");
         ToastUtil.showShort(httpResponse.getMsg());
     }
 

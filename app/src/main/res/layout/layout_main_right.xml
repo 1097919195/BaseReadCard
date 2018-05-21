@@ -4,36 +4,73 @@
     android:layout_height="match_parent"
     android:layout_marginEnd="15dp"
     android:layout_marginStart="15dp">
-    <TextView
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/m_tvDeviceNode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="未连接" />
-    <TextView
-        android:layout_below="@+id/m_tvDeviceNode"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/displayCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="卡号" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_margin="11dp"
+                android:id="@+id/imgWithSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/gxkj_logo"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/m_tvDeviceNode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未连接"
+                android:textColor="@color/black"
+                android:textSize="@dimen/item_text_size_25"/>
+            <TextView
+                android:id="@+id/displayCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请刷卡"
+                android:textColor="@color/black"
+                android:textSize="@dimen/item_text_size_25"/>
 
-    <Button
-        android:layout_below="@+id/displayCard"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/btnScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="do" />
 
-    <Button
-        android:layout_below="@+id/btnScan"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/commit"
-        android:layout_width="wrap_content"
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="绑定" />
+        android:orientation="horizontal">
+        <Button
+            android:layout_marginRight="80dp"
+            android:id="@+id/btnScan"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_light_blue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_text_size_25"
+            android:text="扫码" />
+
+        <Button
+            android:id="@+id/commit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_light_blue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_text_size_25"
+            android:text="绑定" />
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -36,7 +36,7 @@ public class BindingPresenter extends BindingContract.Presenter{
 
             @Override
             protected void _onError(String message) {
-
+                mView.showErrorTip(message);
             }
         }));
     }
