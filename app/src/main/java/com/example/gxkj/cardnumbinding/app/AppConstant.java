@@ -10,5 +10,7 @@ public class AppConstant {
     public static String SAMPLE_ID = "";
     public static final String RXBUS_SAMPLE_PHOTO = "RXBUS_SAMPLE_PHOTO";
     public static final String TOKEN = "TOKEN";
+    public static final String USERINFO_NAME = "USERINFO_NAME";
+    public static final String USERINFO_PASS = "USERINFO_PASS";
 
 }
