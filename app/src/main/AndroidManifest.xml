@@ -50,7 +50,6 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize">
-            >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
             </intent-filter>
