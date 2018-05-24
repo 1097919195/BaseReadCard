@@ -1,5 +1,6 @@
 package com.example.gxkj.cardnumbinding.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
@@ -41,8 +42,6 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     EditText passWord;
     @BindView(R.id.btn_login)
     Button login;
-    @BindView(R.id.btn_setting)
-    Button setting;
     @BindView(R.id.input_eye)
     ImageView inputEye;
     @BindView(R.id.cb_remain_username)
@@ -54,14 +53,15 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     private String password = "";
     private boolean diaplayPassword = false;
 
-    public static void startAction(Context mContext) {
-        Intent intent = new Intent(mContext, AccountActivity.class);
-        mContext.startActivity(intent);
+    public static void startAction(Activity activity) {
+        Intent intent = new Intent(activity, AccountActivity.class);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.act_login;
+        return R.layout.act_login_another;
     }
 
     @Override
@@ -117,10 +117,6 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
                 passWord.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 diaplayPassword = true;
             }
-        });
-
-        setting.setOnClickListener(v -> {
-            ToastUtil.showShort("暂无");
         });
     }
 
