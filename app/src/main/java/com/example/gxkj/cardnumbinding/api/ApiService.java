@@ -101,9 +101,17 @@ public interface ApiService {
 //            @Query("content") String id
 //    );
 
+    //上传衣服的卡号
     @FormUrlEncoded
     @POST("api/cards")
-    Observable<HttpResponse> uploadCardNum(
+    Observable<HttpResponse> uploadCardNumWithSample(
+            @Field("card_num") String num
+    );
+
+    //上传员工的卡号
+    @FormUrlEncoded
+    @POST("api/staff_cards")
+    Observable<HttpResponse> uploadCardNumWithStaff(
             @Field("card_num") String num
     );
 

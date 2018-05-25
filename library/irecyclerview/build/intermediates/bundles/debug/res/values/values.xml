@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IRecyclerView"><attr format="reference" name="refreshHeaderLayout"/><attr format="reference" name="loadMoreFooterLayout"/><attr format="boolean" name="refreshEnabled"/><attr format="boolean" name="loadMoreEnabled"/><attr format="dimension" name="refreshFinalMoveOffset"/></declare-styleable>
+</resources>

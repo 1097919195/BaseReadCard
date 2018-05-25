@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -68,6 +69,10 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
     TextView m_tvDeviceNode;
     private Boolean flag = false;
 
+    @BindView(R.id.change_type)
+    Button change_type;
+    boolean type = true;
+
     @Override
     public int getLayoutId() {
         return R.layout.act_main;
@@ -94,6 +99,28 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
         //测卡器设备检测
         cardDeviceChecked();
         initHandleCardDetails();
+        initListener();
+    }
+
+    private void initListener() {
+        change_type.setOnClickListener(v -> {
+            type = !type;
+            if (type) {
+                change_type.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        change_type.setText("上传衣服卡号模式中");
+                    }
+                });
+            } else {
+                change_type.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        change_type.setText("上传员工卡号模式中");
+                    }
+                });
+            }
+        });
     }
 
     private void initHandleCardDetails() {
@@ -106,7 +133,11 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                     Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
                     String strDate = formatter.format(curDate);
                     displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
-                    mPresenter.uploadCardNumRequest(msg.obj.toString());
+                    if (type) {
+                        mPresenter.uploadCardNumRequest(msg.obj.toString());
+                    } else {
+                        mPresenter.uploadCardNumRequestWithStaff(msg.obj.toString());
+                    }
 //                    flag = false;
                 }
             }
@@ -332,7 +363,12 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
     //卡号上传返回
     @Override
     public void returnUploadCardNumData(HttpResponse httpResponse) {
-        ToastUtil.showShort(httpResponse.getMsg());
+        ToastUtil.showShort("sampleCard"+"   "+httpResponse.getMsg());
+    }
+
+    @Override
+    public void returnUploadCardNumDataWithStaff(HttpResponse httpResponse) {
+        ToastUtil.showShort("staffCard"+"   "+httpResponse.getMsg());
     }
 
     @Override

@@ -1,0 +1,602 @@
+[
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_loading_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_loading_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_right.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab_right.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_classic_refresh_header.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_classic_refresh_header.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_classic_refresh_header_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_classic_refresh_header_view.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_top.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab_top.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\item_pager_image.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\item_pager_image.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_bottom.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab_bottom.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_classic_refresh_header.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_classic_refresh_header.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_loading_tip.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\dialog_loading_tip.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_the_end_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_the_end_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\download_notification_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\8446f6ac8dce41b9dc9bf0b5190dbe2620385a7d\\output\\res\\layout\\download_notification_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_segment.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab_segment.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_loading_tip.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\dialog_loading_tip.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_bat_vs_supper_refresh_header_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_bat_vs_supper_refresh_header_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_bat_vs_supper_refresh_header_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_bat_vs_supper_refresh_header_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\item_pager_image.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\item_pager_image.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\update_dialog.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\8446f6ac8dce41b9dc9bf0b5190dbe2620385a7d\\output\\res\\layout\\update_dialog.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\update_dialog.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\a9ac32a795bd24c7e705c06e7b42931caeb2ee74\\output\\res\\layout\\update_dialog.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_left.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab_left.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_error_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_error_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\toast_custom.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\toast_custom.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_loading.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\download_dialog.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\8446f6ac8dce41b9dc9bf0b5190dbe2620385a7d\\output\\res\\layout\\download_dialog.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\download_dialog.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\a9ac32a795bd24c7e705c06e7b42931caeb2ee74\\output\\res\\layout\\download_dialog.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_view.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\download_notification_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\a9ac32a795bd24c7e705c06e7b42931caeb2ee74\\output\\res\\layout\\download_notification_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab_top.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_refresh_header.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_refresh_header.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_loading_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_loading_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab_bottom.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_segment.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab_segment.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_left.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\3ab83d9cebf21e0549eac151f38af11e04b3cdb9\\output\\res\\layout\\layout_tab_left.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_loading.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\toast_custom.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\toast_custom.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58104d42ecfee3a0912b529d3cd0a50512a36a43\\output\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_error_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_error_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_load_more_footer_the_end_view.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_load_more_footer_the_end_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\act_image_pager.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\act_image_pager.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_refresh_header.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_refresh_header.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\bar_normal.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\bar_normal.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\act_image_pager.xml",
+        "source": "D:\\StudioProgram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\act_image_pager.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\bar_normal.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\common\\build\\intermediates\\bundles\\default\\res\\layout\\bar_normal.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_tab_right.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\fa900c8cd3c9accdc809b334dab9586da35ace06\\output\\res\\layout\\layout_tab_right.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\38e08a3db4dcb687f5076a48eca178b87a2724b5\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\StudioProgram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\ffc4619d8a7e3820413149e8cd8b9bf6cb6a37de\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_irecyclerview_classic_refresh_header_view.xml",
+        "source": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\layout_irecyclerview_classic_refresh_header_view.xml"
+    },
+    {
+        "merged": "D:\\Studioprogram\\AndroidFire-master\\library\\irecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\asus-pc\\.android\\build-cache\\1696e61b92b4c36be6d8d1e47f2394f5783449dc\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    }
+]

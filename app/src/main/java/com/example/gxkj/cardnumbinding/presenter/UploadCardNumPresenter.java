@@ -23,4 +23,19 @@ public class UploadCardNumPresenter extends UploadCardNumContract.Presenter {
             }
         }));
     }
+
+    @Override
+    public void uploadCardNumRequestWithStaff(String num) {
+        mRxManage.add(mModel.getUploadCardNumDataWithStaff(num).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+            @Override
+            protected void _onNext(HttpResponse httpResponse) {
+                mView.returnUploadCardNumDataWithStaff(httpResponse);
+            }
+
+            @Override
+            protected void _onError(String message) {
+                mView.showErrorTip(message);
+            }
+        }));
+    }
 }

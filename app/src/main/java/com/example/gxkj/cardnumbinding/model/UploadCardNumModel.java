@@ -17,7 +17,14 @@ public class UploadCardNumModel implements UploadCardNumContract.Model {
     @Override
     public Observable<HttpResponse> getUploadCardNumData(String num) {
         return Api.getDefault(HostType.QUALITY_DATA)
-                .uploadCardNum(num)
+                .uploadCardNumWithSample(num)
+                .compose(RxSchedulers.io_main());
+    }
+
+    @Override
+    public Observable<HttpResponse> getUploadCardNumDataWithStaff(String num) {
+        return Api.getDefault(HostType.QUALITY_DATA)
+                .uploadCardNumWithStaff(num)
                 .compose(RxSchedulers.io_main());
     }
 }

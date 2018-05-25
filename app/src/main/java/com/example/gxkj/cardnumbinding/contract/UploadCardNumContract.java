@@ -16,14 +16,20 @@ import io.reactivex.Observable;
 public interface UploadCardNumContract {
     interface Model extends BaseModel{
         Observable<HttpResponse> getUploadCardNumData(String num);
+
+        Observable<HttpResponse> getUploadCardNumDataWithStaff(String num);
     }
 
     interface View extends BaseView{
         void returnUploadCardNumData(HttpResponse httpResponse);
+
+        void returnUploadCardNumDataWithStaff(HttpResponse httpResponse);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
         public abstract void uploadCardNumRequest(String num);
+
+        public abstract void uploadCardNumRequestWithStaff(String num);
     }
 
 }
