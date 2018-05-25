@@ -12,7 +12,7 @@ import io.reactivex.Observable;
  * Created by Administrator on 2018/5/20 0020.
  */
 
-public interface BindingContract {
+public interface SampleBindingContract {
     interface Model extends BaseModel{
         Observable<FinishedProductSampleData> getSampleData(String code);
 

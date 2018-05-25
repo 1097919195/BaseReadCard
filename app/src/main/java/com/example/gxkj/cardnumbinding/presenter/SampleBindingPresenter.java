@@ -2,14 +2,14 @@ package com.example.gxkj.cardnumbinding.presenter;
 
 import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
-import com.example.gxkj.cardnumbinding.contract.BindingContract;
+import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
 import com.jaydenxiao.common.baserx.RxSubscriber;
 
 /**
  * Created by Administrator on 2018/5/20 0020.
  */
 
-public class BindingPresenter extends BindingContract.Presenter{
+public class SampleBindingPresenter extends SampleBindingContract.Presenter{
     @Override
     public void getSampleDataRequest(String code) {
         mRxManage.add(mModel.getSampleData(code).subscribeWith(new RxSubscriber<FinishedProductSampleData>(mContext, true) {

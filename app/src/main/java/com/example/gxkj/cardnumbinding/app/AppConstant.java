@@ -5,6 +5,11 @@ package com.example.gxkj.cardnumbinding.app;
  */
 
 public class AppConstant {
+    public static final String HOME_CURRENT_TAB_POSITION="HOME_CURRENT_TAB_POSITION";
+    public static final String SEND_CARD_NUMBER="SEND_CARD_NUMBER";
+    public static final String CLEAR_CARD_NUMBER="CLEAR_CARD_NUMBER";
+
+
     public static final String IMAGE_DOMAIN_NAME = "https://ts.npclo.com/";
     public static String CARD_NUMBER = "";
     public static String SAMPLE_ID = "";

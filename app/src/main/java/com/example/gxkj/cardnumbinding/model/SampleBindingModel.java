@@ -4,7 +4,7 @@ import com.example.gxkj.cardnumbinding.api.Api;
 import com.example.gxkj.cardnumbinding.api.HostType;
 import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
-import com.example.gxkj.cardnumbinding.contract.BindingContract;
+import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
 import com.jaydenxiao.common.baserx.RxSchedulers;
 
 import io.reactivex.Observable;
@@ -13,7 +13,7 @@ import io.reactivex.Observable;
  * Created by Administrator on 2018/5/20 0020.
  */
 
-public class BindingModel implements BindingContract.Model {
+public class SampleBindingModel implements SampleBindingContract.Model {
     @Override
     public Observable<FinishedProductSampleData> getSampleData(String code) {
         return Api.getDefault(HostType.QUALITY_DATA)

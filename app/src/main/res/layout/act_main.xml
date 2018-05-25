@@ -6,236 +6,270 @@
     android:fitsSystemWindows="false"
     tools:context="com.example.gxkj.cardnumbinding.activity.MainActivity">
 
-    <LinearLayout
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="0.8"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="9"-->
+                <!--android:orientation="vertical">-->
+                <!--<TextView-->
+                    <!--android:gravity="center"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/ic_preference_first_normal"-->
+                    <!--android:textSize="@dimen/item_text_size_30"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:text="产品详情"/>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/ic_preference_last_normal"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="产品名称："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/name"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="产品编号："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/num"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="产品规格："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/spec"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装版型："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/ban_xing"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="产品类型："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/type"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装码号："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/size"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装颜色："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/color"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装面料："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/fabric"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装款式："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/style"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="服装廓形："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/profile"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:text="零售价格："/>-->
+                        <!--<TextView-->
+                            <!--android:textSize="@dimen/item_text_size_25"-->
+                            <!--android:id="@+id/retailPrice"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent" />-->
+                    <!--</LinearLayout>-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<include layout="@laylayout_frag_right_staffandsamplemple" />-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+    <FrameLayout
+        android:id="@+id/fl_body"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_toLeftOf="@+id/tab_navigation">
 
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="9"
-                android:orientation="vertical">
-                <TextView
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_preference_first_normal"
-                    android:textSize="@dimen/item_text_size_30"
-                    android:textColor="@color/colorPrimary"
-                    android:padding="5dp"
-                    android:text="产品详情"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ic_preference_last_normal"
-                    android:orientation="vertical">
+    </FrameLayout>
 
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="产品名称："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/name"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="产品编号："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/num"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="产品规格："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/spec"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装版型："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/ban_xing"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="产品类型："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/type"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装码号："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/size"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装颜色："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/color"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装面料："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/fabric"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装款式："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/style"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装廓形："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/profile"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="零售价格："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/retailPrice"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/tab_navigation"
+        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/bindingWithSample"
+            android:background="@drawable/btn_tab_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent">
-
-            <include layout="@layout/layout_main_right" />
-        </LinearLayout>
+            android:text="服装绑定"
+            android:textSize="@dimen/item_text_size_25"
+            android:ems="1"/>
+        <Button
+            android:id="@+id/bindingWithStaff"
+            android:background="@drawable/btn_tab_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="员工绑定"
+            android:textSize="@dimen/item_text_size_25"
+            android:ems="1"/>
     </LinearLayout>
 
 </RelativeLayout>

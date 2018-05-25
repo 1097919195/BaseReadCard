@@ -10,11 +10,11 @@ import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,23 +24,23 @@ import com.example.gxkj.cardnumbinding.app.AppConstant;
 import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
-import com.example.gxkj.cardnumbinding.contract.BindingContract;
-import com.example.gxkj.cardnumbinding.model.BindingModel;
-import com.example.gxkj.cardnumbinding.presenter.BindingPresenter;
+import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
+import com.example.gxkj.cardnumbinding.fragment.SampleBindingFragment;
+import com.example.gxkj.cardnumbinding.fragment.StaffBindingFragment;
+import com.example.gxkj.cardnumbinding.model.SampleBindingModel;
+import com.example.gxkj.cardnumbinding.presenter.SampleBindingPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.jaydenxiao.common.baserx.RxBus2;
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import cc.lotuscard.ILotusCallBack;
 import cc.lotuscard.LotusCardDriver;
 import cc.lotuscard.LotusCardParam;
@@ -50,7 +50,7 @@ import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_UsbDeviceConnection;
 
-public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> implements ILotusCallBack ,BindingContract.View{
+public class MainActivity extends BaseActivity implements ILotusCallBack{
 
     private LotusCardDriver mLotusCardDriver;
     private UsbManager usbManager = null;
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     private final int m_nPID = 20763;//产品识别码
     private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
 
-    private Boolean haveUsbHostApi = false;
+    public static boolean haveUsbHostApi = false;
     private String deviceNode;//USB设备名称
     private HashMap<String, UsbDevice> deviceList;
 
@@ -72,44 +72,52 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     private UsbDeviceConnection conn = null;//这个类用于发送和接收数据和控制消息到USB设备
 
     /*********************************** UI *********************************/
-    public static final int REQUEST_CODE_WECHATUSER = 1201;
-    private static final int REQUEST_CODE_CONTRACT = 1202;
-    public static final String REDIRECT_URI = "redirect_uri";
-    private static final int SCAN_HINT = 1001;
-    private static final int CODE_HINT = 1002;
-    @BindView(R.id.displayCard)
-    TextView displayCard;
-    @BindView(R.id.m_tvDeviceNode)
-    TextView m_tvDeviceNode;
-    @BindView(R.id.btnScan)
-    Button btnScan;
-    @BindView(R.id.name)
-    TextView name;
-    @BindView(R.id.num)
-    TextView num;
-    @BindView(R.id.spec)
-    TextView spec;
-    @BindView(R.id.ban_xing)
-    TextView ban_xing;
-    @BindView(R.id.type)
-    TextView type;
-    @BindView(R.id.size)
-    TextView size;
-    @BindView(R.id.color)
-    TextView color;
-    @BindView(R.id.fabric)
-    TextView fabric;
-    @BindView(R.id.style)
-    TextView style;
-    @BindView(R.id.profile)
-    TextView profile;
-    @BindView(R.id.retailPrice)
-    TextView retailPrice;
-    @BindView(R.id.commit)
-    Button commit;
-    @BindView(R.id.imgWithSample)
-    ImageView imgWithSample;
+//    public static final int REQUEST_CODE_WECHATUSER = 1201;
+//    private static final int REQUEST_CODE_CONTRACT = 1202;
+//    public static final String REDIRECT_URI = "redirect_uri";
+//    private static final int SCAN_HINT = 1001;
+//    private static final int CODE_HINT = 1002;
+//    @BindView(R.id.displayCard)
+//    TextView displayCard;
+//    @BindView(R.id.m_tvDeviceNode)
+//    TextView m_tvDeviceNode;
+//    @BindView(R.id.btnScan)
+//    Button btnScan;
+//    @BindView(R.id.name)
+//    TextView name;
+//    @BindView(R.id.num)
+//    TextView num;
+//    @BindView(R.id.spec)
+//    TextView spec;
+//    @BindView(R.id.ban_xing)
+//    TextView ban_xing;
+//    @BindView(R.id.type)
+//    TextView type;
+//    @BindView(R.id.size)
+//    TextView size;
+//    @BindView(R.id.color)
+//    TextView color;
+//    @BindView(R.id.fabric)
+//    TextView fabric;
+//    @BindView(R.id.style)
+//    TextView style;
+//    @BindView(R.id.profile)
+//    TextView profile;
+//    @BindView(R.id.retailPrice)
+//    TextView retailPrice;
+//    @BindView(R.id.commit)
+//    Button commit;
+//    @BindView(R.id.imgWithSample)
+//    ImageView imgWithSample;
     private Boolean flag = false;
+
+    SampleBindingFragment sampleBindingFragment;
+    StaffBindingFragment staffBindingFragment;
+    @BindView(R.id.bindingWithStaff)
+    Button bindingWithStaff;
+    @BindView(R.id.bindingWithSample)
+    Button bindingWithSample;
+
 
     public static void startActivity(Context mContext) {
         Intent intent = new Intent(mContext, MainActivity.class);
@@ -123,7 +131,6 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
 
     @Override
     public void initPresenter() {
-        mPresenter.setVM(this,mModel);
     }
 
     @Override
@@ -143,39 +150,104 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
         //测卡器设备检测
         cardDeviceChecked();
         initHandleCardDetails();
-        initListener();
-        initRxBus2WithSamplePhoto();
+//        initListener();
+//        initRxBus2WithSamplePhoto();
     }
 
-    private void initRxBus2WithSamplePhoto() {
-        mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
-            @Override
-            public void accept(String imgStr) throws Exception {
-                ImageLoaderUtils.displayBigPhoto(mContext,imgWithSample,imgStr);
-            }
-        });
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //初始化frament
+        initFragment(savedInstanceState);
     }
 
-    private void initListener() {
-        btnScan.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
-            startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
-//            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-        });
+    private void initFragment(Bundle savedInstanceState) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        int currentTabPosition = 0;
+        if (savedInstanceState != null) {
+            sampleBindingFragment = (SampleBindingFragment) getSupportFragmentManager().findFragmentByTag("sampleBindingFragment");
+            staffBindingFragment = (StaffBindingFragment) getSupportFragmentManager().findFragmentByTag("staffBindingFragment");
 
-        commit.setOnClickListener(v -> {
-            if (!AppConstant.CARD_NUMBER.equals("")) {
-                if (!AppConstant.SAMPLE_ID.equals("")) {
-                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
-                }else {
-                    ToastUtil.showShort("请先确认产品");
-                }
-            }else {
-             ToastUtil.showShort("当前卡号为空");
-            }
+            currentTabPosition = savedInstanceState.getInt(AppConstant.HOME_CURRENT_TAB_POSITION);
+        } else {
+            sampleBindingFragment = new SampleBindingFragment();
+            staffBindingFragment = new StaffBindingFragment();
 
-        });
+            transaction.add(R.id.fl_body, sampleBindingFragment, "sampleBindingFragment");
+            transaction.add(R.id.fl_body, staffBindingFragment, "staffBindingFragment");
+        }
+        transaction.commit();
+        SwitchTo(currentTabPosition);
     }
+
+    @OnClick({R.id.bindingWithSample,R.id.bindingWithStaff})
+    public void OnClick(View view) {
+        switch (view.getId()) {
+            case R.id.bindingWithSample:
+                SwitchTo(0);
+                break;
+            case R.id.bindingWithStaff:
+                SwitchTo(1);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void SwitchTo(int position) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        switch (position) {
+            case 0:
+                transaction.hide(staffBindingFragment);
+                transaction.show(sampleBindingFragment);
+                transaction.commitAllowingStateLoss();
+                bindingWithSample.setTextColor(getResources().getColor(R.color.red));
+                bindingWithStaff.setTextColor(getResources().getColor(R.color.black));
+//                iv_send_newspaper.setImageResource(R.drawable.snewspaper_in);
+//                iv_send_thepress.setImageResource(R.drawable.sthepress_out);
+                break;
+            case 1:
+                transaction.hide(sampleBindingFragment);
+                transaction.show(staffBindingFragment);
+                transaction.commitAllowingStateLoss();
+                bindingWithSample.setTextColor(getResources().getColor(R.color.black));
+                bindingWithStaff.setTextColor(getResources().getColor(R.color.red));
+//                iv_send_newspaper.setImageResource(R.drawable.snewspaper_out);
+//                iv_send_thepress.setImageResource(R.drawable.sthepress_in);
+                break;
+        }
+    }
+
+//    private void initRxBus2WithSamplePhoto() {
+//        mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
+//            @Override
+//            public void accept(String imgStr) throws Exception {
+//                ImageLoaderUtils.displayBigPhoto(mContext,imgWithSample,imgStr);
+//            }
+//        });
+//    }
+//
+//    private void initListener() {
+//        btnScan.setOnClickListener(v -> {
+//            Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+//            startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
+////            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+//        });
+//
+//        commit.setOnClickListener(v -> {
+//            if (!AppConstant.CARD_NUMBER.equals("")) {
+//                if (!AppConstant.SAMPLE_ID.equals("")) {
+//                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
+//                }else {
+//                    ToastUtil.showShort("请先确认产品");
+//                }
+//            }else {
+//             ToastUtil.showShort("当前卡号为空");
+//            }
+//
+//        });
+//    }
 
 
     private void initHandleCardDetails() {
@@ -188,7 +260,12 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
                     Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
                     String strDate = formatter.format(curDate);
                     AppConstant.CARD_NUMBER = msg.obj.toString();
-                    displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString(AppConstant.CARD_NUMBER,msg.obj.toString());
+//                    sampleBindingFragment.setArguments(bundle);
+//                    staffBindingFragment.setArguments(bundle);
+                    RxBus2.getInstance().post(AppConstant.SEND_CARD_NUMBER,msg.obj.toString() + "  (" + strDate + ")");
+//                    displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
 //                    mPresenter.getQualityDataRequest("59f171090246a35c424dcec5");
 //                    flag = false;
                 }
@@ -199,20 +276,20 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     //刷卡器USB状态检测
     private void cardDeviceChecked() {
         if (haveUsbHostApi) {
-            m_tvDeviceNode.post(new Runnable() {
-                @Override
-                public void run() {
-                    m_tvDeviceNode.setText("已连接");
-                }
-            });
+//            m_tvDeviceNode.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    m_tvDeviceNode.setText("已连接");
+//                }
+//            });
             initAuto();
         }else {
-            m_tvDeviceNode.post(new Runnable() {
-                @Override
-                public void run() {
-                    m_tvDeviceNode.setText("未连接");
-                }
-            });
+//            m_tvDeviceNode.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    m_tvDeviceNode.setText("未连接");
+//                }
+//            });
         }
     }
 
@@ -412,84 +489,41 @@ public class MainActivity extends BaseActivity<BindingPresenter,BindingModel> im
     public void AddLog(String strLog) {
     }
 
-    //获取二维码扫描结果处理
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        LogUtils.loge(String.valueOf(requestCode)+"   "+String.valueOf(resultCode));
-        if (requestCode == REQUEST_CODE_WECHATUSER) {
-            if (data != null) {
-                Bundle bundle = data.getExtras();
-                String result = bundle.getString("result");
-                switch (resultCode) {
-                    case SCAN_HINT:
-                        if (result != null) {
-                            LogUtils.loge("二维码解析====" + result);
-                            if (result.contains("http")) {
-                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-                            }else {
-                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-                            }
-                        } else {
-                            ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
-                        }
-                        break;
-                    case CODE_HINT:
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-    }
-
-    //返回获取的样衣数据
-    @Override
-    public void returnGetSampleData(FinishedProductSampleData sampleData) {
-        name.setText(sampleData.getName());
-        num.setText(sampleData.getNum());
-        spec.setText(sampleData.getSpec());
-        ban_xing.setText(sampleData.getBan_xing());
-        type.setText(String.valueOf(sampleData.getType()));
-        size.setText(sampleData.getSize());
-        color.setText(sampleData.getColor());
-        fabric.setText(sampleData.getFabric());
-        style.setText(sampleData.getStyle());
-        profile.setText(sampleData.getProfile());
-        retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
-
-        AppConstant.SAMPLE_ID = sampleData.get_id();
-        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
-        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
-    }
-
-    //办卡成功返回
-    @Override
-    public void returnBindingCardWithCode(HttpResponse httpResponse) {
-        AppConstant.CARD_NUMBER = "";
-        displayCard.setText("请刷卡");
-        ToastUtil.showShort(httpResponse.getMsg());
-    }
+//    //获取二维码扫描结果处理
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        LogUtils.loge(String.valueOf(requestCode)+"   "+String.valueOf(resultCode));
+//        if (requestCode == REQUEST_CODE_WECHATUSER) {
+//            if (data != null) {
+//                Bundle bundle = data.getExtras();
+//                String result = bundle.getString("result");
+//                switch (resultCode) {
+//                    case SCAN_HINT:
+//                        if (result != null) {
+//                            LogUtils.loge("二维码解析====" + result);
+//                            if (result.contains("http")) {
+//                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+//                            }else {
+//                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+//                            }
+//                        } else {
+//                            ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
+//                        }
+//                        break;
+//                    case CODE_HINT:
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        }
+//
+//    }
 
     @Override
     protected void onPause() {
         super.onPause();
         flag = false;
-    }
-
-    @Override
-    public void showLoading(String title) {
-
-    }
-
-    @Override
-    public void stopLoading() {
-
-    }
-
-    @Override
-    public void showErrorTip(String msg) {
-        ToastUtil.showShort(msg);
     }
 }
