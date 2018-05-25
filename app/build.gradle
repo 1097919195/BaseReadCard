@@ -9,7 +9,7 @@ android {
 
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.gxkj.cardnumbinding"
+        applicationId "com.example.gxkj.uploadcard"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
