@@ -64,8 +64,8 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     TextView retailPrice;
     @BindView(R.id.commit)
     Button commit;
-    @BindView(R.id.imgWithSample)
-    ImageView imgWithSample;
+    @BindView(R.id.imgWithProduct)
+    ImageView imgWithProduct;
 
     @Override
     protected int getLayoutResource() {
@@ -107,7 +107,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
             @Override
             public void accept(String imgStr) throws Exception {
-                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithSample,imgStr);
+                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithProduct,imgStr);
             }
         });
 

@@ -28,6 +28,7 @@ import com.jaydenxiao.common.security.Md5Security;
 
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -66,8 +67,8 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
 
     @BindView(R.id.commit)
     Button commit;
-    @BindView(R.id.imgWithSample)
-    ImageView imgWithSample;
+    @BindView(R.id.imgWithProduct)
+    ImageView imgWithProduct;
 
     @Override
     protected int getLayoutResource() {
@@ -109,7 +110,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
         mRxManager.on(AppConstant.RXBUS_STAFF_PHOTO, new Consumer<String>() {
             @Override
             public void accept(String imgStr) throws Exception {
-//                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithSample,imgStr);
+                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithProduct,imgStr);
             }
         });
 
@@ -164,11 +165,11 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
                         if (result != null) {
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
-                                String sUrl = URLEncoder.encode("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
-                                Md5Security.getMD5("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
-                                mPresenter.getStaffDataRequest(Md5Security.getMD5("http://weixin.qq.com/q/02YFyE97sudTk10000g07i"));
+                                String sUrl = URLEncoder.encode("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
+                                Md5Security.getMD5("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
+                                mPresenter.getStaffDataRequest(Md5Security.getMD5("http://weixin.qq.com/q/02AVy_8bsudTk10000007S"));
                             }else {
-                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
+                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
@@ -185,6 +186,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
     }
 
 
+    //获取员工信息结果
     @Override
     public void returnGetStaffData(StaffData staffData) {
         name.setText(staffData.getName());
@@ -200,11 +202,12 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
         email.setText(staffData.getEmail());
 
         AppConstant.STAFF_ID = staffData.get_id();
-        LogUtils.loge(staffData.getQrcode_content());
-//        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
-//        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+        String relative = staffData.getAvatar().getRelative_image_path();
+        LogUtils.loge(relative);
+        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+relative);
     }
 
+    //绑卡成功操作
     @Override
     public void returnBindingCardWithStaff(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";

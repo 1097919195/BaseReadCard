@@ -1,5 +1,8 @@
 package com.example.gxkj.cardnumbinding.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Administrator on 2018/5/26 0026.
  */
@@ -28,14 +31,14 @@ public class StaffData {
     private String position;//职位
     private String email;//邮箱
     private String num;//编号
-    private String qrcode_content;
+    private Avatar avatar;//图片地址   这里面不是一个数组不能用集合表示
 
-    public String getQrcode_content() {
-        return qrcode_content;
+    public Avatar getAvatar() {
+        return avatar;
     }
 
-    public void setQrcode_content(String qrcode_content) {
-        this.qrcode_content = qrcode_content;
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
     }
 
     public String get_id() {
@@ -101,5 +104,26 @@ public class StaffData {
 
     public void setNum(String num) {
         this.num = num;
+    }
+
+    public static class Avatar {
+        private String image_path;
+        private String relative_image_path;
+
+        public String getImage_path() {
+            return image_path;
+        }
+
+        public void setImage_path(String image_path) {
+            this.image_path = image_path;
+        }
+
+        public String getRelative_image_path() {
+            return relative_image_path;
+        }
+
+        public void setRelative_image_path(String relative_image_path) {
+            this.relative_image_path = relative_image_path;
+        }
     }
 }

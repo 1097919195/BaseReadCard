@@ -101,13 +101,13 @@ public interface ApiService {
             @Query("content") String id
     );
 
-    //获取样衣详情
+    //获取员工详情
     @GET("api/third/staff/parts")
     Observable<HttpResponse<StaffData>> getStaffData(
             @Query("content") String id
     );
 
-    //绑定成衣卡号上传
+    //绑定成衣卡号
     @FormUrlEncoded
     @POST("api/third/samples/bind_card")
     Observable<HttpResponse> bindingCardWithSample(
@@ -115,12 +115,12 @@ public interface ApiService {
             @Field("clothes_id") String id
     );
 
-    //绑定员工卡号上传
+    //绑定员工卡号
     @FormUrlEncoded
     @POST("api/third/staff/bind_card")
     Observable<HttpResponse> bindingCardWithStaff(
             @Field("card_num") String num,
-            @Field("qrcode_content") String id
+            @Field("staff_id") String id
     );
 
     //登录

@@ -158,7 +158,7 @@ public abstract class RxSubscriber<T> extends DisposableObserver<T> {
                 _onError("服务器异常");
             }
         } else if (e instanceof InternalError) {
-            LogUtils.loge("asdfasdf");
+            LogUtils.loge("onError_internalError");
         }
         //其它
         else {

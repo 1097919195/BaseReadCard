@@ -15,7 +15,7 @@
             android:layout_weight="1">
             <ImageView
                 android:layout_margin="11dp"
-                android:id="@+id/imgWithSample"
+                android:id="@+id/imgWithProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
