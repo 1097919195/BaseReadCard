@@ -1,17 +1,15 @@
 package com.example.gxkj.cardnumbinding.api;
 
 
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
-
-import java.util.ArrayList;
+import com.example.gxkj.cardnumbinding.bean.StaffData;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -99,19 +97,33 @@ public interface ApiService {
 
     //获取样衣详情
     @GET("api/third/samples/parts")
-    Observable<HttpResponse<FinishedProductSampleData>> getSampleData(
+    Observable<HttpResponse<SampleData>> getSampleData(
             @Query("content") String id
     );
 
-    //绑定卡号上传
+    //获取样衣详情
+    @GET("api/third/staff/parts")
+    Observable<HttpResponse<StaffData>> getStaffData(
+            @Query("content") String id
+    );
+
+    //绑定成衣卡号上传
     @FormUrlEncoded
     @POST("api/third/samples/bind_card")
-    Observable<HttpResponse> bindingCardWithCode(
+    Observable<HttpResponse> bindingCardWithSample(
             @Field("card_num") String num,
             @Field("clothes_id") String id
     );
 
-    //绑定卡号上传
+    //绑定员工卡号上传
+    @FormUrlEncoded
+    @POST("api/third/staff/bind_card")
+    Observable<HttpResponse> bindingCardWithStaff(
+            @Field("card_num") String num,
+            @Field("qrcode_content") String id
+    );
+
+    //登录
     @FormUrlEncoded
     @POST("api/third/login")
     Observable<HttpResponse> getTokenWithSignIn(

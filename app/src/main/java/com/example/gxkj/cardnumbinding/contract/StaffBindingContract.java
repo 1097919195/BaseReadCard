@@ -1,7 +1,8 @@
 package com.example.gxkj.cardnumbinding.contract;
 
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.StaffData;
 import com.jaydenxiao.common.base.BaseModel;
 import com.jaydenxiao.common.base.BasePresenter;
 import com.jaydenxiao.common.base.BaseView;
@@ -14,22 +15,22 @@ import io.reactivex.Observable;
 
 public interface StaffBindingContract {
     interface Model extends BaseModel{
-        Observable<FinishedProductSampleData> getSampleData(String code);
+        Observable<StaffData> getStaffData(String code);
 
-        Observable<HttpResponse> bindingCardWithCode(String num, String id);
+        Observable<HttpResponse> bindingCardWithStaff(String num, String id);
     }
 
     interface View extends BaseView{
-        void returnGetSampleData(FinishedProductSampleData sampleData);
+        void returnGetStaffData(StaffData staffData);
 
-        void returnBindingCardWithCode(HttpResponse httpResponse);
+        void returnBindingCardWithStaff(HttpResponse httpResponse);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
 
-        public abstract void getSampleDataRequest(String code);
+        public abstract void getStaffDataRequest(String code);
 
-        public abstract void bindingCardWithCode(String num , String id);
+        public abstract void bindingCardWithStaff(String num , String id);
     }
 
 

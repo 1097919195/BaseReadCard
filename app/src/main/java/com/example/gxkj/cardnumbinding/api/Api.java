@@ -229,10 +229,6 @@ public class Api {
             if (httpResponse.getData() == null) {
                 throw new ApiException("暂无数据");
             }
-            if (status == 200) {
-                data = httpResponse.getData();
-            }
-//            return data;//统一处理但是不利于指向对应的错误类型
             return httpResponse.getData();
         }
     }

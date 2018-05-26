@@ -260,6 +260,7 @@
             android:layout_weight="1"
             android:text="服装绑定"
             android:textSize="@dimen/item_text_size_25"
+            android:textColor="@color/white"
             android:ems="1"/>
         <Button
             android:id="@+id/bindingWithStaff"
@@ -269,6 +270,7 @@
             android:layout_weight="1"
             android:text="员工绑定"
             android:textSize="@dimen/item_text_size_25"
+            android:textColor="@color/white"
             android:ems="1"/>
     </LinearLayout>
 

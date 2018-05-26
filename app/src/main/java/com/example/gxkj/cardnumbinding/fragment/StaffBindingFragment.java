@@ -9,17 +9,25 @@ import android.widget.TextView;
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.activity.MainActivity;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.StaffData;
 import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
 import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
+import com.example.gxkj.cardnumbinding.contract.StaffBindingContract;
 import com.example.gxkj.cardnumbinding.model.SampleBindingModel;
+import com.example.gxkj.cardnumbinding.model.StaffBindingModel;
 import com.example.gxkj.cardnumbinding.presenter.SampleBindingPresenter;
+import com.example.gxkj.cardnumbinding.presenter.StaffBindingPresenter;
 import com.jaydenxiao.common.base.BaseFragment;
 import com.jaydenxiao.common.baserx.RxBus2;
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
+import com.jaydenxiao.common.security.Md5Security;
+
+import java.net.URL;
+import java.net.URLEncoder;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -28,12 +36,13 @@ import io.reactivex.functions.Consumer;
  * Created by Administrator on 2018/5/25 0025.
  */
 
-public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,SampleBindingModel> implements SampleBindingContract.View{
+public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,StaffBindingModel> implements StaffBindingContract.View{
     public static final int REQUEST_CODE_WECHATUSER = 1201;
     private static final int REQUEST_CODE_CONTRACT = 1202;
     public static final String REDIRECT_URI = "redirect_uri";
     private static final int SCAN_HINT = 1001;
     private static final int CODE_HINT = 1002;
+
     @BindView(R.id.displayCard)
     TextView displayCard;
     @BindView(R.id.m_tvDeviceNode)
@@ -44,24 +53,17 @@ public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,Sa
     TextView name;
     @BindView(R.id.num)
     TextView num;
-    @BindView(R.id.spec)
-    TextView spec;
-    @BindView(R.id.ban_xing)
-    TextView ban_xing;
-    @BindView(R.id.type)
-    TextView type;
-    @BindView(R.id.size)
-    TextView size;
-    @BindView(R.id.color)
-    TextView color;
-    @BindView(R.id.fabric)
-    TextView fabric;
-    @BindView(R.id.style)
-    TextView style;
-    @BindView(R.id.profile)
-    TextView profile;
-    @BindView(R.id.retailPrice)
-    TextView retailPrice;
+    @BindView(R.id.department)
+    TextView department;
+    @BindView(R.id.gender)
+    TextView gender;
+    @BindView(R.id.mobile)
+    TextView mobile;
+    @BindView(R.id.position)
+    TextView position;
+    @BindView(R.id.email)
+    TextView email;
+
     @BindView(R.id.commit)
     Button commit;
     @BindView(R.id.imgWithSample)
@@ -104,10 +106,10 @@ public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,Sa
 
     private void initRxBus2() {
         //设置获取到的产品图片
-        mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
+        mRxManager.on(AppConstant.RXBUS_STAFF_PHOTO, new Consumer<String>() {
             @Override
             public void accept(String imgStr) throws Exception {
-                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithSample,imgStr);
+//                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithSample,imgStr);
             }
         });
 
@@ -132,13 +134,12 @@ public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,Sa
         btnScan.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
             startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
-//            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
         });
 
         commit.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
-                if (!AppConstant.SAMPLE_ID.equals("")) {
-                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
+                if (!AppConstant.STAFF_ID.equals("")) {
+                    mPresenter.bindingCardWithStaff(AppConstant.CARD_NUMBER ,AppConstant.STAFF_ID);
                 }else {
                     ToastUtil.showShort("请先确认产品");
                 }
@@ -163,9 +164,11 @@ public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,Sa
                         if (result != null) {
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
-                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+                                String sUrl = URLEncoder.encode("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
+                                Md5Security.getMD5("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
+                                mPresenter.getStaffDataRequest(Md5Security.getMD5("http://weixin.qq.com/q/02YFyE97sudTk10000g07i"));
                             }else {
-                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
+                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02YFyE97sudTk10000g07i");
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
@@ -183,26 +186,27 @@ public class StaffBindingFragment extends BaseFragment<SampleBindingPresenter,Sa
 
 
     @Override
-    public void returnGetSampleData(FinishedProductSampleData sampleData) {
-        name.setText(sampleData.getName());
-        num.setText(sampleData.getNum());
-        spec.setText(sampleData.getSpec());
-        ban_xing.setText(sampleData.getBan_xing());
-        type.setText(String.valueOf(sampleData.getType()));
-        size.setText(sampleData.getSize());
-        color.setText(sampleData.getColor());
-        fabric.setText(sampleData.getFabric());
-        style.setText(sampleData.getStyle());
-        profile.setText(sampleData.getProfile());
-        retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
+    public void returnGetStaffData(StaffData staffData) {
+        name.setText(staffData.getName());
+        num.setText(staffData.getNum());
+        department.setText(staffData.getDepartment());
+        if (staffData.getGender() == 1) {
+            gender.setText("男");
+        } else {
+            gender.setText("女");
+        }
+        mobile.setText(staffData.getMobile());
+        position.setText(staffData.getPosition());
+        email.setText(staffData.getEmail());
 
-        AppConstant.SAMPLE_ID = sampleData.get_id();
-        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
-        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+        AppConstant.STAFF_ID = staffData.get_id();
+        LogUtils.loge(staffData.getQrcode_content());
+//        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+//        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
     }
 
     @Override
-    public void returnBindingCardWithCode(HttpResponse httpResponse) {
+    public void returnBindingCardWithStaff(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER,"请刷卡");
         ToastUtil.showShort(httpResponse.getMsg());

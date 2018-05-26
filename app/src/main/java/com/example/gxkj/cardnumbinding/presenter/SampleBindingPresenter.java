@@ -1,6 +1,6 @@
 package com.example.gxkj.cardnumbinding.presenter;
 
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
 import com.jaydenxiao.common.baserx.RxSubscriber;
@@ -12,9 +12,9 @@ import com.jaydenxiao.common.baserx.RxSubscriber;
 public class SampleBindingPresenter extends SampleBindingContract.Presenter{
     @Override
     public void getSampleDataRequest(String code) {
-        mRxManage.add(mModel.getSampleData(code).subscribeWith(new RxSubscriber<FinishedProductSampleData>(mContext, true) {
+        mRxManage.add(mModel.getSampleData(code).subscribeWith(new RxSubscriber<SampleData>(mContext, true) {
             @Override
-            protected void _onNext(FinishedProductSampleData sampleData) {
+            protected void _onNext(SampleData sampleData) {
                 mView.returnGetSampleData(sampleData);
             }
 

@@ -15,25 +15,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
-import com.example.gxkj.cardnumbinding.bean.HttpResponse;
-import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
-import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
 import com.example.gxkj.cardnumbinding.fragment.SampleBindingFragment;
 import com.example.gxkj.cardnumbinding.fragment.StaffBindingFragment;
-import com.example.gxkj.cardnumbinding.model.SampleBindingModel;
-import com.example.gxkj.cardnumbinding.presenter.SampleBindingPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.jaydenxiao.common.baserx.RxBus2;
-import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
-import com.jaydenxiao.common.commonutils.LogUtils;
-import com.jaydenxiao.common.commonutils.ToastUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -44,7 +33,6 @@ import butterknife.OnClick;
 import cc.lotuscard.ILotusCallBack;
 import cc.lotuscard.LotusCardDriver;
 import cc.lotuscard.LotusCardParam;
-import io.reactivex.functions.Consumer;
 
 import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
@@ -72,43 +60,6 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
     private UsbDeviceConnection conn = null;//这个类用于发送和接收数据和控制消息到USB设备
 
     /*********************************** UI *********************************/
-//    public static final int REQUEST_CODE_WECHATUSER = 1201;
-//    private static final int REQUEST_CODE_CONTRACT = 1202;
-//    public static final String REDIRECT_URI = "redirect_uri";
-//    private static final int SCAN_HINT = 1001;
-//    private static final int CODE_HINT = 1002;
-//    @BindView(R.id.displayCard)
-//    TextView displayCard;
-//    @BindView(R.id.m_tvDeviceNode)
-//    TextView m_tvDeviceNode;
-//    @BindView(R.id.btnScan)
-//    Button btnScan;
-//    @BindView(R.id.name)
-//    TextView name;
-//    @BindView(R.id.num)
-//    TextView num;
-//    @BindView(R.id.spec)
-//    TextView spec;
-//    @BindView(R.id.ban_xing)
-//    TextView ban_xing;
-//    @BindView(R.id.type)
-//    TextView type;
-//    @BindView(R.id.size)
-//    TextView size;
-//    @BindView(R.id.color)
-//    TextView color;
-//    @BindView(R.id.fabric)
-//    TextView fabric;
-//    @BindView(R.id.style)
-//    TextView style;
-//    @BindView(R.id.profile)
-//    TextView profile;
-//    @BindView(R.id.retailPrice)
-//    TextView retailPrice;
-//    @BindView(R.id.commit)
-//    Button commit;
-//    @BindView(R.id.imgWithSample)
-//    ImageView imgWithSample;
     private Boolean flag = false;
 
     SampleBindingFragment sampleBindingFragment;
@@ -146,7 +97,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
         mLotusCardDriver = new LotusCardDriver();
         mLotusCardDriver.m_lotusCallBack = this;
         // 设置USB读写回调 串口可以不用此操作
-        haveUsbHostApi = SetUsbCallBack();
+        haveUsbHostApi = setUsbCallBack();
         //测卡器设备检测
         cardDeviceChecked();
         initHandleCardDetails();
@@ -203,52 +154,19 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
                 transaction.show(sampleBindingFragment);
                 transaction.commitAllowingStateLoss();
                 bindingWithSample.setTextColor(getResources().getColor(R.color.red));
-                bindingWithStaff.setTextColor(getResources().getColor(R.color.black));
-//                iv_send_newspaper.setImageResource(R.drawable.snewspaper_in);
-//                iv_send_thepress.setImageResource(R.drawable.sthepress_out);
+                bindingWithStaff.setTextColor(getResources().getColor(R.color.white));
                 break;
             case 1:
                 transaction.hide(sampleBindingFragment);
                 transaction.show(staffBindingFragment);
                 transaction.commitAllowingStateLoss();
-                bindingWithSample.setTextColor(getResources().getColor(R.color.black));
+                bindingWithSample.setTextColor(getResources().getColor(R.color.white));
                 bindingWithStaff.setTextColor(getResources().getColor(R.color.red));
-//                iv_send_newspaper.setImageResource(R.drawable.snewspaper_out);
-//                iv_send_thepress.setImageResource(R.drawable.sthepress_in);
+                break;
+            default:
                 break;
         }
     }
-
-//    private void initRxBus2WithSamplePhoto() {
-//        mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
-//            @Override
-//            public void accept(String imgStr) throws Exception {
-//                ImageLoaderUtils.displayBigPhoto(mContext,imgWithSample,imgStr);
-//            }
-//        });
-//    }
-//
-//    private void initListener() {
-//        btnScan.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
-//            startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
-////            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-//        });
-//
-//        commit.setOnClickListener(v -> {
-//            if (!AppConstant.CARD_NUMBER.equals("")) {
-//                if (!AppConstant.SAMPLE_ID.equals("")) {
-//                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
-//                }else {
-//                    ToastUtil.showShort("请先确认产品");
-//                }
-//            }else {
-//             ToastUtil.showShort("当前卡号为空");
-//            }
-//
-//        });
-//    }
-
 
     private void initHandleCardDetails() {
         mHandler = new Handler() {
@@ -294,7 +212,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
     }
 
     //设置USB读写回调
-    private Boolean SetUsbCallBack() {
+    private Boolean setUsbCallBack() {
         Boolean bResult = false;
         PendingIntent pendingIntent;
         pendingIntent = PendingIntent.getBroadcast(this, 0, new Intent(
@@ -432,19 +350,19 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
         int nBufferLength = arrBuffer.length;
         int nWaitCount = 0;
         if (null == m_UsbDeviceConnection) {
-            AddLog("null == m_UsbDeviceConnection");
+            addLog("null == m_UsbDeviceConnection");
             return false;
         }
         if (null == m_OutEndpoint) {
-            AddLog("null == m_OutEndpoint");
+            addLog("null == m_OutEndpoint");
             return false;
         }
         if (null == m_InEndpoint) {
-            AddLog("null == m_InEndpoint");
+            addLog("null == m_InEndpoint");
             return false;
         }
         if (nBufferLength < 65) {
-            AddLog("nBufferLength < 65");
+            addLog("nBufferLength < 65");
             return false;
         }
         if (true == bRead) {
@@ -453,7 +371,7 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
                 nResult = m_UsbDeviceConnection.bulkTransfer(m_InEndpoint,
                         arrBuffer, 64, 3000);
                 if (nResult <= 0) {
-                    AddLog("nResult <= 0 is " + nResult);
+                    addLog("nResult <= 0 is " + nResult);
                     break;
                 }
                 if (arrBuffer[0] != 0) {
@@ -464,14 +382,14 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
                 }
                 nWaitCount++;
                 if (nWaitCount > 1000) {
-                    AddLog("nWaitCount > 1000");
+                    addLog("nWaitCount > 1000");
                     break;
                 }
             }
             if (nResult == 64) {
                 bResult = true;
             } else {
-                AddLog("nResult != 64 is" +nResult);
+                addLog("nResult != 64 is" +nResult);
                 bResult = false;
             }
         } else {
@@ -480,46 +398,14 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
             if (nResult == 64) {
                 bResult = true;
             } else {
-                AddLog("m_OutEndpoint bulkTransfer Write error");
+                addLog("m_OutEndpoint bulkTransfer Write error");
                 bResult = false;
             }
         }
         return bResult;
     }
-    public void AddLog(String strLog) {
+    public void addLog(String strLog) {
     }
-
-//    //获取二维码扫描结果处理
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        LogUtils.loge(String.valueOf(requestCode)+"   "+String.valueOf(resultCode));
-//        if (requestCode == REQUEST_CODE_WECHATUSER) {
-//            if (data != null) {
-//                Bundle bundle = data.getExtras();
-//                String result = bundle.getString("result");
-//                switch (resultCode) {
-//                    case SCAN_HINT:
-//                        if (result != null) {
-//                            LogUtils.loge("二维码解析====" + result);
-//                            if (result.contains("http")) {
-//                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-//                            }else {
-//                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
-//                            }
-//                        } else {
-//                            ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
-//                        }
-//                        break;
-//                    case CODE_HINT:
-//                        break;
-//                    default:
-//                        break;
-//                }
-//            }
-//        }
-//
-//    }
 
     @Override
     protected void onPause() {

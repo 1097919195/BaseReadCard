@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/20 0020.
  */
 
-public class FinishedProductSampleData {
+public class SampleData {
     /**
      * _id : 5afcfc749134ca08662ec729
      * name : 1

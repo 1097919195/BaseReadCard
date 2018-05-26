@@ -1,6 +1,6 @@
 package com.example.gxkj.cardnumbinding.contract;
 
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.jaydenxiao.common.base.BaseModel;
 import com.jaydenxiao.common.base.BasePresenter;
@@ -14,13 +14,13 @@ import io.reactivex.Observable;
 
 public interface SampleBindingContract {
     interface Model extends BaseModel{
-        Observable<FinishedProductSampleData> getSampleData(String code);
+        Observable<SampleData> getSampleData(String code);
 
         Observable<HttpResponse> bindingCardWithCode(String num , String id);
     }
 
     interface View extends BaseView{
-        void returnGetSampleData(FinishedProductSampleData sampleData);
+        void returnGetSampleData(SampleData sampleData);
 
         void returnBindingCardWithCode(HttpResponse httpResponse);
     }

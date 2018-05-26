@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.activity.MainActivity;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
-import com.example.gxkj.cardnumbinding.bean.FinishedProductSampleData;
+import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
 import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
@@ -183,7 +183,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
 
 
     @Override
-    public void returnGetSampleData(FinishedProductSampleData sampleData) {
+    public void returnGetSampleData(SampleData sampleData) {
         name.setText(sampleData.getName());
         num.setText(sampleData.getNum());
         spec.setText(sampleData.getSpec());
