@@ -58,6 +58,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
     private UsbDeviceConnection conn = null;//这个类用于发送和接收数据和控制消息到USB设备
 
     /*********************************** UI *********************************/
+
     public static final int REQUEST_CODE_WECHATUSER = 1201;
     private static final int REQUEST_CODE_CONTRACT = 1202;
     public static final String REDIRECT_URI = "redirect_uri";
