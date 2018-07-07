@@ -1,8 +1,12 @@
 package com.example.gxkj.cardnumbinding.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -23,13 +27,16 @@ import com.example.gxkj.cardnumbinding.model.AccountModel;
 import com.example.gxkj.cardnumbinding.presenter.AccountPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.jaydenxiao.common.commonutils.LogUtils;
+import com.jaydenxiao.common.commonutils.PermissionUtils;
 import com.jaydenxiao.common.commonutils.SPUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by Administrator on 2018/5/21 0021.
@@ -53,6 +60,13 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     private String password = "";
     private boolean diaplayPassword = false;
 
+    SharedPreferences sp = AppApplication.getAppContext().getSharedPreferences("share", MODE_PRIVATE);
+    SharedPreferences.Editor editor = sp.edit();
+    boolean isFirstRun = sp.getBoolean("isFirstRun", true);
+    String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.CAMERA ,Manifest.permission.RECORD_AUDIO};
+    public static int permissionCode = 1;
+
+
     public static void startAction(Activity activity) {
         Intent intent = new Intent(activity, AccountActivity.class);
         activity.startActivity(intent);
@@ -73,8 +87,38 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     public void initView() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);//底部导航栏覆盖activity
+        initPermission();
         initUserInfo();
         initListener();
+    }
+
+    private void initPermission() {
+//        RxPermissions rxPermissions = new RxPermissions(AccountActivity.this);
+//        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(
+//                aBoolean -> {
+////                        if (aBoolean==true) {
+////                            //请求成功处理的事件
+////                        } else {
+////                            AlertDialog.Builder alertDialog = new AlertDialog.Builder(AccountActivity.this);
+////                            alertDialog.setMessage("请手动开启权限！");
+////                            alertDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+////                                @Override
+////                                public void onClick(DialogInterface dialog, int which) {
+////                                    finish();
+////                                }
+////                            });
+////                            alertDialog.create().show();
+////                        }
+//                });
+
+        if (isFirstRun){
+            //请求多个权限
+            PermissionUtils.checkAndRequestMorePermissions(this,permissions,permissionCode);
+
+            Log.e("debug", "第一次运行");
+            editor.putBoolean("isFirstRun", false);
+            editor.commit();
+        }
     }
 
     private void initUserInfo() {
