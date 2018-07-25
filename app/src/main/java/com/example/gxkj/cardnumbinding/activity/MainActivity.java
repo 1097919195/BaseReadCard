@@ -1,5 +1,6 @@
 package com.example.gxkj.cardnumbinding.activity;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
@@ -8,24 +9,35 @@ import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.os.Message;
+import android.text.InputType;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
+import com.example.gxkj.cardnumbinding.app.AppConstant;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.MtmData;
 import com.example.gxkj.cardnumbinding.contract.UploadCardNumContract;
 import com.example.gxkj.cardnumbinding.model.UploadCardNumModel;
 import com.example.gxkj.cardnumbinding.presenter.UploadCardNumPresenter;
 import com.jaydenxiao.common.base.BaseActivity;
+import com.jaydenxiao.common.commonutils.LogUtils;
+import com.jaydenxiao.common.commonutils.SPUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.BindView;
 import cc.lotuscard.ILotusCallBack;
@@ -36,7 +48,7 @@ import static cc.lotuscard.LotusCardDriver.m_InEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_OutEndpoint;
 import static cc.lotuscard.LotusCardDriver.m_UsbDeviceConnection;
 
-public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCardNumModel> implements ILotusCallBack ,UploadCardNumContract.View {
+public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCardNumModel> implements ILotusCallBack, UploadCardNumContract.View {
 
     private LotusCardDriver mLotusCardDriver;
     private UsbManager usbManager = null;
@@ -68,11 +80,21 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
     TextView displayCard;
     @BindView(R.id.m_tvDeviceNode)
     TextView m_tvDeviceNode;
+    @BindView(R.id.card_type)
+    Spinner card_type;
+    @BindView(R.id.mtm_spinner)
+    Spinner mtm_spinner;
     private Boolean flag = false;
 
-    @BindView(R.id.change_type)
-    Button change_type;
-    boolean type = true;
+    int cardType = 1;
+    String mtmID = "";
+
+
+    public static void startAction(Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 
     @Override
     public int getLayoutId() {
@@ -100,28 +122,52 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
         //测卡器设备检测
         cardDeviceChecked();
         initHandleCardDetails();
+        initSipnner();
         initListener();
     }
 
-    private void initListener() {
-        change_type.setOnClickListener(v -> {
-            type = !type;
-            if (type) {
-                change_type.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        change_type.setText("上传衣服卡号模式中");
-                    }
-                });
-            } else {
-                change_type.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        change_type.setText("上传员工卡号模式中");
-                    }
-                });
+
+    private void initSipnner() {
+        List<String> spinnerList = new ArrayList<String>();
+        spinnerList.add("样衣卡号上传模式中");
+        spinnerList.add("员工卡号上传模式中");
+        spinnerList.add("物品卡号上传模式中");
+        spinnerList.add("对应卡号分配模式中");
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
+        myAdapter.setDropDownViewResource(R.layout.item_sipnner_type);//保持布局样式一致
+        card_type.setAdapter(myAdapter);
+
+        card_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                mtm_spinner.setVisibility(View.GONE);
+                cardType = i+1;
+                LogUtils.loge("cardType===" + cardType);
+//                if (searchType == 0) {
+//                    et_search.setInputType(InputType.TYPE_CLASS_NUMBER);
+//                    et_search.setText("");
+//                } else {
+//                    et_search.setInputType(InputType.TYPE_CLASS_TEXT);
+//                    et_search.setText("");
+//                }
+
+                if (cardType == 4) {
+                    ToastUtil.showShort("请记得在右边选择需要分配的用户");
+                    mPresenter.getMtmDataRequest();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
+
+
+    }
+
+    private void initListener() {
+
     }
 
     private void initHandleCardDetails() {
@@ -134,11 +180,19 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                     Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
                     String strDate = formatter.format(curDate);
                     displayCard.setText(msg.obj.toString() + "  (" + strDate + ")");
-                    if (type) {
-                        mPresenter.uploadCardNumRequest(msg.obj.toString());
-                    } else {
-                        mPresenter.uploadCardNumRequestWithStaff(msg.obj.toString());
+
+                    if (cardType != 4) {
+                        mPresenter.uploadCardNumRequest(cardType,msg.obj.toString());
+                    }else {
+                        if (mtmID != "") {
+                            mPresenter.assignCardNumRequest(mtmID,msg.obj.toString());
+                        }else {
+                            ToastUtil.showShort("没有对应的用户可以分配");
+                        }
+
                     }
+
+
 //                    flag = false;
                 }
             }
@@ -155,7 +209,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                 }
             });
             initAuto();
-        }else {
+        } else {
             m_tvDeviceNode.post(new Runnable() {
                 @Override
                 public void run() {
@@ -173,7 +227,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                 ACTION_USB_PERMISSION), 0);
         // Get UsbManager from Android.
         usbManager = (UsbManager) AppApplication.getAppContext().getSystemService(USB_SERVICE);
-        if (null == usbManager){
+        if (null == usbManager) {
             return bResult;
         }
 
@@ -189,11 +243,11 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                 }
             }
         }
-        if (null == usbDevice){
+        if (null == usbDevice) {
             return bResult;
         }
         usbInterface = usbDevice.getInterface(0);
-        if (null == usbInterface){
+        if (null == usbInterface) {
             return bResult;
         }
         if (false == usbManager.hasPermission(usbDevice)) {//权限判断
@@ -204,7 +258,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
             conn = usbManager.openDevice(usbDevice);//获取实例
         }
 
-        if (null == conn){
+        if (null == conn) {
             return bResult;
         }
 
@@ -213,7 +267,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
         } else {
             conn.close();
         }
-        if (null == usbDeviceConnection){
+        if (null == usbDeviceConnection) {
             return bResult;
         }
         // 把上面获取的对性设置到接口中用于回调操作
@@ -247,11 +301,11 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
             boolean bResult;
             int nRequestType;
             long lCardNo;
-            int n=0;
+            int n = 0;
 
             while (true) {//使得线程循环
                 if (haveUsbHostApi && flag) {//是否暂停
-                    Log.e("test===",String.valueOf(n++));
+                    Log.e("test===", String.valueOf(n++));
                     try {
                         nRequestType = LotusCardDriver.RT_NOT_HALT;//未进入休眠的卡
                         bResult = mLotusCardDriver.GetCardNo(deviceHandle, nRequestType, tLotusCardParam1);//获取卡号，true表示成功
@@ -331,7 +385,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
                 if (arrBuffer[0] != 0) {
                     //此处调整一下
                     System.arraycopy(arrBuffer, 0, arrBuffer, 1, nResult);
-                    arrBuffer[0] = (byte)nResult;
+                    arrBuffer[0] = (byte) nResult;
                     break;
                 }
                 nWaitCount++;
@@ -343,7 +397,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
             if (nResult == 64) {
                 bResult = true;
             } else {
-                AddLog("nResult != 64 is" +nResult);
+                AddLog("nResult != 64 is" + nResult);
                 bResult = false;
             }
         } else {
@@ -358,18 +412,54 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter,UploadCard
         }
         return bResult;
     }
+
     public void AddLog(String strLog) {
     }
 
     //卡号上传返回
     @Override
     public void returnUploadCardNumData(HttpResponse httpResponse) {
-        ToastUtil.showShort("sampleCard"+"   "+httpResponse.getMsg());
+        if (cardType==1) {
+            ToastUtil.showShort("样衣卡  OK");
+        }
+        if (cardType==2) {
+            ToastUtil.showShort("员工卡  OK");
+        }
+        if (cardType==3) {
+            ToastUtil.showShort("物品卡  OK");
+        }
+
     }
 
+    //卡号分配
     @Override
-    public void returnUploadCardNumDataWithStaff(HttpResponse httpResponse) {
-        ToastUtil.showShort("staffCard"+"   "+httpResponse.getMsg());
+    public void returnAssignCardNumData(HttpResponse httpResponse) {
+        ToastUtil.showShort("assign  OK");
+    }
+
+    //mtm用户列表获取
+    @Override
+    public void returnMtmDData(List<MtmData> mtmDataList) {
+        mtm_spinner.setVisibility(View.VISIBLE);
+        List<String> spinnerList = new ArrayList<String>();
+        for (MtmData mtmData : mtmDataList) {
+            spinnerList.add(mtmData.getName());
+        }
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
+        myAdapter.setDropDownViewResource(R.layout.item_sipnner_type);//保持布局样式一致
+        mtm_spinner.setAdapter(myAdapter);
+        mtm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                mtmID = mtmDataList.get(i).getID();
+                LogUtils.loge("用户对应的MtmID   "+mtmID);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override

@@ -15,7 +15,7 @@ public class HttpResponseError {
      */
 
     private boolean success;
-    private String msg;
+    private String message;
     private List<ErrorsBean> errors;
 
     public boolean isSuccess() {
@@ -27,11 +27,11 @@ public class HttpResponseError {
     }
 
     public String getMsg() {
-        return msg;
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMsg(String message) {
+        this.message = message;
     }
 
     public List<ErrorsBean> getErrors() {

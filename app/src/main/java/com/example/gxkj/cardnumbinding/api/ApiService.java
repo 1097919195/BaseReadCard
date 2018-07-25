@@ -2,8 +2,11 @@ package com.example.gxkj.cardnumbinding.api;
 
 
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.LoginTokenData;
+import com.example.gxkj.cardnumbinding.bean.MtmData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -101,18 +104,33 @@ public interface ApiService {
 //            @Query("content") String id
 //    );
 
-    //上传衣服的卡号
+    //登录
     @FormUrlEncoded
-    @POST("api/cards")
-    Observable<HttpResponse> uploadCardNumWithSample(
+    @POST("api/admin/login")
+    Observable<HttpResponse<LoginTokenData>> getTokenWithSignIn(
+            @Field("name") String username,
+            @Field("password") String password
+    );
+
+    //上传卡号
+    @FormUrlEncoded
+    @POST("api/admin/cards")
+    Observable<HttpResponse> uploadCardNum(
+            @Field("card_type") int type,
             @Field("card_num") String num
     );
 
-    //上传员工的卡号
+    //卡号分配
     @FormUrlEncoded
-    @POST("api/staff_cards")
-    Observable<HttpResponse> uploadCardNumWithStaff(
+    @POST("api/admin/cards/assign")
+    Observable<HttpResponse> assignCardNum(
+            @Field("mtm_id") String mtmID,
             @Field("card_num") String num
+    );
+
+    //mtm用户列表获取
+    @GET("api/admin/mtm_users_list")
+    Observable<HttpResponse<List<MtmData>>> mtmInfo(
     );
 
 }

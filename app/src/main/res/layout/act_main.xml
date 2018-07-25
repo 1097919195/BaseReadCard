@@ -6,31 +6,49 @@
     android:background="@mipmap/gxkj_logo"
     tools:context="com.example.gxkj.cardnumbinding.activity.MainActivity">
 
-        <TextView
-            android:layout_above="@+id/displayCard"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/m_tvDeviceNode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="未连接"
-            android:textSize="25sp"/>
-        <TextView
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/displayCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="卡号"
-            android:textSize="25sp"
-            android:layout_marginBottom="15dp"/>
-        <Button
-            android:layout_margin="20dp"
-            android:id="@+id/change_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="上传衣服卡号模式中"
-            android:textColor="@color/red"
-            android:background="@drawable/btn_change_type"
-            android:padding="15dp"/>
+    <TextView
+        android:id="@+id/m_tvDeviceNode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/displayCard"
+        android:layout_centerHorizontal="true"
+        android:text="未连接"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/displayCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="卡号"
+        android:textSize="25sp" />
+
+    <!--android:overlapAnchor="false"-->
+    <Spinner
+        android:layout_margin="20dp"
+        android:id="@+id/card_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:background="@null">
+
+    </Spinner>
+
+    <Spinner
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:layout_margin="20dp"
+        android:id="@+id/mtm_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:background="@null"
+        android:layout_toRightOf="@+id/card_type">
+
+    </Spinner>
+
+
 
 </RelativeLayout>

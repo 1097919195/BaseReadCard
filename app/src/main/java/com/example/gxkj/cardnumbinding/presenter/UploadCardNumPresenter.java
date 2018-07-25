@@ -10,8 +10,8 @@ import com.jaydenxiao.common.baserx.RxSubscriber;
 
 public class UploadCardNumPresenter extends UploadCardNumContract.Presenter {
     @Override
-    public void uploadCardNumRequest(String num) {
-        mRxManage.add(mModel.getUploadCardNumData(num).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+    public void uploadCardNumRequest(int type, String num) {
+        mRxManage.add(mModel.getUploadCardNumData(type,num).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
             @Override
             protected void _onNext(HttpResponse httpResponse) {
                 mView.returnUploadCardNumData(httpResponse);
@@ -25,11 +25,11 @@ public class UploadCardNumPresenter extends UploadCardNumContract.Presenter {
     }
 
     @Override
-    public void uploadCardNumRequestWithStaff(String num) {
-        mRxManage.add(mModel.getUploadCardNumDataWithStaff(num).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+    public void assignCardNumRequest(String mtmID, String cardID) {
+        mRxManage.add(mModel.getAssignCardNumData(mtmID,cardID).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
             @Override
             protected void _onNext(HttpResponse httpResponse) {
-                mView.returnUploadCardNumDataWithStaff(httpResponse);
+                mView.returnAssignCardNumData(httpResponse);
             }
 
             @Override
@@ -37,5 +37,17 @@ public class UploadCardNumPresenter extends UploadCardNumContract.Presenter {
                 mView.showErrorTip(message);
             }
         }));
+    }
+
+    @Override
+    public void getMtmDataRequest() {
+
+        mRxManage.add(mModel.getMtmData().subscribe(
+                mtmDataList -> {
+                    mView.returnMtmDData(mtmDataList);
+                },e->{
+                    mView.showErrorTip(e.getMessage());
+                }
+        ));
     }
 }
