@@ -1,6 +1,7 @@
 package com.example.gxkj.cardnumbinding.presenter;
 
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.LoginTokenData;
 import com.example.gxkj.cardnumbinding.contract.AccountContract;
 import com.jaydenxiao.common.baserx.RxSubscriber;
 
@@ -17,10 +18,10 @@ public class AccountPresenter extends AccountContract.Presenter{
 //                        e ->{mView.showErrorTip(e.getMessage());}
 //                ));
 
-        mRxManage.add(mModel.getTokenSignIn(userName,passWord).subscribeWith(new RxSubscriber<HttpResponse>(mContext, true) {
+        mRxManage.add(mModel.getTokenSignIn(userName,passWord).subscribeWith(new RxSubscriber<LoginTokenData>(mContext, true) {
             @Override
-            protected void _onNext(HttpResponse httpResponse) {
-                mView.returnGetTokenSignIn(httpResponse);
+            protected void _onNext(LoginTokenData loginTokenData) {
+                mView.returnGetTokenSignIn(loginTokenData);
             }
 
             @Override

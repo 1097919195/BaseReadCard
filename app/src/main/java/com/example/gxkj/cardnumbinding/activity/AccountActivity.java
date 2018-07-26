@@ -22,6 +22,7 @@ import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
+import com.example.gxkj.cardnumbinding.bean.LoginTokenData;
 import com.example.gxkj.cardnumbinding.contract.AccountContract;
 import com.example.gxkj.cardnumbinding.model.AccountModel;
 import com.example.gxkj.cardnumbinding.presenter.AccountPresenter;
@@ -87,7 +88,7 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     public void initView() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);//底部导航栏覆盖activity
-        initPermission();
+//        initPermission();
         initUserInfo();
         initListener();
     }
@@ -165,20 +166,12 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     }
 
     @Override
-    public void returnGetTokenSignIn(HttpResponse httpResponse) {
-        if (httpResponse.getSuccess()) {
-            try {
-                JSONObject jsonObject = new JSONObject(httpResponse.getData().toString());
-                LogUtils.loge(httpResponse.getData().toString());
-                LogUtils.loge(jsonObject.getString("jwt"));
-                SPUtils.setSharedStringData(AppApplication.getAppContext(),AppConstant.TOKEN,jsonObject.getString("jwt"));
-                MainActivity.startActivity(mContext);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }else {
-            ToastUtil.showShort("用户名或者密码错误！");
-        }
+    public void returnGetTokenSignIn(LoginTokenData tokenData) {
+        SPUtils.setSharedStringData(AppApplication.getAppContext(), AppConstant.TOKEN, tokenData.getToken_type() + tokenData.getAccess_token());
+        LogUtils.loge(tokenData.getAccess_token());
+        ToastUtil.showShort("登录成功！");
+        finish();
+        MainActivity.startActivity(AccountActivity.this);
     }
 
     @Override

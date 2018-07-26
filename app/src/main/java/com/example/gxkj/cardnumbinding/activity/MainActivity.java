@@ -1,5 +1,6 @@
 package com.example.gxkj.cardnumbinding.activity;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import com.example.gxkj.cardnumbinding.R;
 import com.example.gxkj.cardnumbinding.app.AppApplication;
 import com.example.gxkj.cardnumbinding.app.AppConstant;
+import com.example.gxkj.cardnumbinding.fragment.GoodsBindingFragment;
 import com.example.gxkj.cardnumbinding.fragment.SampleBindingFragment;
 import com.example.gxkj.cardnumbinding.fragment.StaffBindingFragment;
 import com.jaydenxiao.common.base.BaseActivity;
@@ -64,15 +66,18 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
 
     SampleBindingFragment sampleBindingFragment;
     StaffBindingFragment staffBindingFragment;
+    GoodsBindingFragment goodsBindingFragment;
     @BindView(R.id.bindingWithStaff)
     Button bindingWithStaff;
     @BindView(R.id.bindingWithSample)
     Button bindingWithSample;
+    @BindView(R.id.bindingWithGoods)
+    Button bindingWithGoods;
 
 
-    public static void startActivity(Context mContext) {
-        Intent intent = new Intent(mContext, MainActivity.class);
-        mContext.startActivity(intent);
+    public static void startActivity(Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
+        activity.startActivity(intent);
     }
 
     @Override
@@ -118,20 +123,23 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
         if (savedInstanceState != null) {
             sampleBindingFragment = (SampleBindingFragment) getSupportFragmentManager().findFragmentByTag("sampleBindingFragment");
             staffBindingFragment = (StaffBindingFragment) getSupportFragmentManager().findFragmentByTag("staffBindingFragment");
+            goodsBindingFragment = (GoodsBindingFragment) getSupportFragmentManager().findFragmentByTag("goodsBindingFragment");
 
             currentTabPosition = savedInstanceState.getInt(AppConstant.HOME_CURRENT_TAB_POSITION);
         } else {
             sampleBindingFragment = new SampleBindingFragment();
             staffBindingFragment = new StaffBindingFragment();
+            goodsBindingFragment = new GoodsBindingFragment();
 
             transaction.add(R.id.fl_body, sampleBindingFragment, "sampleBindingFragment");
             transaction.add(R.id.fl_body, staffBindingFragment, "staffBindingFragment");
+            transaction.add(R.id.fl_body, goodsBindingFragment, "goodsBindingFragment");
         }
         transaction.commit();
         SwitchTo(currentTabPosition);
     }
 
-    @OnClick({R.id.bindingWithSample,R.id.bindingWithStaff})
+    @OnClick({R.id.bindingWithSample,R.id.bindingWithStaff,R.id.bindingWithGoods})
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.bindingWithSample:
@@ -139,6 +147,9 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
                 break;
             case R.id.bindingWithStaff:
                 SwitchTo(1);
+                break;
+            case R.id.bindingWithGoods:
+                SwitchTo(2);
                 break;
             default:
                 break;
@@ -151,17 +162,30 @@ public class MainActivity extends BaseActivity implements ILotusCallBack{
         switch (position) {
             case 0:
                 transaction.hide(staffBindingFragment);
+                transaction.hide(goodsBindingFragment);
                 transaction.show(sampleBindingFragment);
                 transaction.commitAllowingStateLoss();
                 bindingWithSample.setTextColor(getResources().getColor(R.color.red));
                 bindingWithStaff.setTextColor(getResources().getColor(R.color.white));
+                bindingWithGoods.setTextColor(getResources().getColor(R.color.white));
                 break;
             case 1:
                 transaction.hide(sampleBindingFragment);
+                transaction.hide(goodsBindingFragment);
                 transaction.show(staffBindingFragment);
                 transaction.commitAllowingStateLoss();
                 bindingWithSample.setTextColor(getResources().getColor(R.color.white));
                 bindingWithStaff.setTextColor(getResources().getColor(R.color.red));
+                bindingWithGoods.setTextColor(getResources().getColor(R.color.white));
+                break;
+            case 2:
+                transaction.hide(sampleBindingFragment);
+                transaction.hide(staffBindingFragment);
+                transaction.show(goodsBindingFragment);
+                transaction.commitAllowingStateLoss();
+                bindingWithSample.setTextColor(getResources().getColor(R.color.white));
+                bindingWithStaff.setTextColor(getResources().getColor(R.color.white));
+                bindingWithGoods.setTextColor(getResources().getColor(R.color.red));
                 break;
             default:
                 break;

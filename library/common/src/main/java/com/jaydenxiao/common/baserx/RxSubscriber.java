@@ -141,7 +141,9 @@ public abstract class RxSubscriber<T> extends DisposableObserver<T> {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                }else {
+                } else if (code == 401) {
+                    _onError("token过期");
+                } else {
                     try {
                         String body = exception.response().errorBody().string();
                         LogUtils.loge("onErrorBody==" + body);

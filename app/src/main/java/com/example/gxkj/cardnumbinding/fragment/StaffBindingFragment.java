@@ -167,9 +167,9 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
                             if (result.contains("http")) {
                                 String sUrl = URLEncoder.encode("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
                                 Md5Security.getMD5("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
-                                mPresenter.getStaffDataRequest(Md5Security.getMD5("http://weixin.qq.com/q/02AVy_8bsudTk10000007S"));
+                                mPresenter.getStaffDataRequest(" http://weixin.qq.com/q/02HoDi8IsudTk10000g07K");
                             }else {
-                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
+                                mPresenter.getStaffDataRequest(" http://weixin.qq.com/q/02HoDi8IsudTk10000g07K");
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
@@ -202,9 +202,9 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
         email.setText(staffData.getEmail());
 
         AppConstant.STAFF_ID = staffData.get_id();
-        String relative = staffData.getAvatar().getRelative_image_path();
-        LogUtils.loge(relative);
-        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+relative);
+//        String relative = staffData.getAvatar().getRelative_image_path();
+//        LogUtils.loge(relative);
+//        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+relative);
     }
 
     //绑卡成功操作
@@ -212,7 +212,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
     public void returnBindingCardWithStaff(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER,"请刷卡");
-        ToastUtil.showShort(httpResponse.getMsg());
+        ToastUtil.showShort("binding staff is OK");
     }
 
     @Override

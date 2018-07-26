@@ -42,8 +42,6 @@ public class SampleData {
     private String style;//款式
     private String profile;//廓形
     private String image;//图片
-    private List<Object> apparelInfo;//成衣信息{name value}
-    private List<String> partsInfo;//量体部位{parts}
 
     public String get_id() {
         return _id;
@@ -155,21 +153,5 @@ public class SampleData {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public List<?> getApparelInfo() {
-        return apparelInfo;
-    }
-
-    public void setApparelInfo(List<Object> apparelInfo) {
-        this.apparelInfo = apparelInfo;
-    }
-
-    public List<?> getPartsInfo() {
-        return partsInfo;
-    }
-
-    public void setPartsInfo(List<String> partsInfo) {
-        this.partsInfo = partsInfo;
     }
 }

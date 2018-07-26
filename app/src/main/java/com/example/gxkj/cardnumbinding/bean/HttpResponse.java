@@ -7,7 +7,7 @@ package com.example.gxkj.cardnumbinding.bean;
 
 public class HttpResponse<T> {
     private int status;
-    private String msg;
+    private String message;
     private T data;
     private boolean success;
 
@@ -16,7 +16,7 @@ public class HttpResponse<T> {
     }
 
     public String getMsg() {
-        return msg;
+        return message;
     }
 
     public T getData() {
@@ -35,8 +35,8 @@ public class HttpResponse<T> {
         this.status = status;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMsg(String message) {
+        this.message = message;
     }
 
     public void setData(T data) {

@@ -1,6 +1,8 @@
 package com.example.gxkj.cardnumbinding.api;
 
 
+import com.example.gxkj.cardnumbinding.bean.GoodsData;
+import com.example.gxkj.cardnumbinding.bean.LoginTokenData;
 import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.example.gxkj.cardnumbinding.bean.StaffData;
@@ -96,20 +98,29 @@ public interface ApiService {
 //
 
     //获取样衣详情
-    @GET("api/third/samples/parts")
+    @FormUrlEncoded
+    @POST("api/mtm/clothes/search")
     Observable<HttpResponse<SampleData>> getSampleData(
-            @Query("content") String id
+            @Field("c_qrcode_content") String id
     );
 
     //获取员工详情
-    @GET("api/third/staff/parts")
+    @FormUrlEncoded
+    @POST("api/mtm/staffs/search")
     Observable<HttpResponse<StaffData>> getStaffData(
-            @Query("content") String id
+            @Field("s_qrcode_content") String id
+    );
+
+    //获取物品详情
+    @FormUrlEncoded
+    @POST("api/mtm/goods/search")
+    Observable<HttpResponse<GoodsData>> getGoodsData(
+            @Field("goods_qrcode_content") String id
     );
 
     //绑定成衣卡号
     @FormUrlEncoded
-    @POST("api/third/samples/bind_card")
+    @POST("api/mtm/clothes/bind_card")
     Observable<HttpResponse> bindingCardWithSample(
             @Field("card_num") String num,
             @Field("clothes_id") String id
@@ -117,17 +128,25 @@ public interface ApiService {
 
     //绑定员工卡号
     @FormUrlEncoded
-    @POST("api/third/staff/bind_card")
+    @POST("api/mtm/staffs/bind_card")
     Observable<HttpResponse> bindingCardWithStaff(
             @Field("card_num") String num,
             @Field("staff_id") String id
     );
 
+    //绑定物品卡号
+    @FormUrlEncoded
+    @POST("api/mtm/goods/bind_card")
+    Observable<HttpResponse> bindingCardWithGoods(
+            @Field("card_num") String num,
+            @Field("goods_id") String id
+    );
+
     //登录
     @FormUrlEncoded
-    @POST("api/third/login")
-    Observable<HttpResponse> getTokenWithSignIn(
-            @Field("username") String username,
+    @POST("api/mtm/login")
+    Observable<HttpResponse<LoginTokenData>> getTokenWithSignIn(
+            @Field("name") String username,
             @Field("password") String password
     );
 
