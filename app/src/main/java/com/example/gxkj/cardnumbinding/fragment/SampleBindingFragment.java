@@ -163,9 +163,9 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
                         if (result != null) {
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
-                                mPresenter.getSampleDataRequest("clothes:5b5987399134ca79ea2667b2");
+                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02zigr9EsudTk10000007C");
                             }else {
-                                mPresenter.getSampleDataRequest("clothes:5b5987399134ca79ea2667b2");
+                                mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02zigr9EsudTk10000007C");
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
