@@ -420,10 +420,10 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
     @Override
     public void returnUploadCardNumData(HttpResponse httpResponse) {
         if (cardType==1) {
-            ToastUtil.showShort("样衣卡  OK");
+            ToastUtil.showShort("员工卡  OK");
         }
         if (cardType==2) {
-            ToastUtil.showShort("员工卡  OK");
+            ToastUtil.showShort("样衣卡  OK");
         }
         if (cardType==3) {
             ToastUtil.showShort("物品卡  OK");
