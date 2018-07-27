@@ -129,8 +129,8 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
 
     private void initSipnner() {
         List<String> spinnerList = new ArrayList<String>();
-        spinnerList.add("样衣卡号上传模式中");
         spinnerList.add("员工卡号上传模式中");
+        spinnerList.add("样衣卡号上传模式中");
         spinnerList.add("物品卡号上传模式中");
         spinnerList.add("对应卡号分配模式中");
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
