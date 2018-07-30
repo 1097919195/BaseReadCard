@@ -30,7 +30,7 @@
                     android:textSize="@dimen/item_text_size_30"
                     android:textColor="@color/colorPrimary"
                     android:padding="5dp"
-                    android:text="产品详情"/>
+                    android:text="样衣详情"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

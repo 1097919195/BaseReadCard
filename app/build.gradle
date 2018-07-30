@@ -45,6 +45,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(':library:common')
+    implementation project(':library:irecyclerview')
     compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

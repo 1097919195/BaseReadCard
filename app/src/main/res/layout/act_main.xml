@@ -258,7 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="服装绑定"
+            android:text="样衣绑定"
             android:textSize="@dimen/item_text_size_25"
             android:textColor="@color/white"
             android:ems="1"/>
@@ -279,6 +279,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="物品绑定"
+            android:textSize="@dimen/item_text_size_25"
+            android:textColor="@color/white"
+            android:ems="1"/>
+        <Button
+            android:id="@+id/assignStore"
+            android:background="@drawable/btn_tab_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="门店分配"
             android:textSize="@dimen/item_text_size_25"
             android:textColor="@color/white"
             android:ems="1"/>

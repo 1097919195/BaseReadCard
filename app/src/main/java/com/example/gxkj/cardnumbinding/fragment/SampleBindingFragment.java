@@ -140,7 +140,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
                 if (!AppConstant.SAMPLE_ID.equals("")) {
                     mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
                 }else {
-                    ToastUtil.showShort("请先确认产品");
+                    ToastUtil.showShort("请先确认样衣");
                 }
             }else {
                 ToastUtil.showShort("当前卡号为空");
@@ -197,8 +197,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
 
         AppConstant.SAMPLE_ID = sampleData.get_id();
-//        LogUtils.loge(AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
-//        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
     }
 
     @Override

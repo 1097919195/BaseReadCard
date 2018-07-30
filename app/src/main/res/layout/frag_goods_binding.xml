@@ -63,7 +63,7 @@
                             android:textSize="@dimen/item_text_size_25"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="产品编号："/>
+                            android:text="物品编号："/>
                         <TextView
                             android:textSize="@dimen/item_text_size_25"
                             android:id="@+id/num"
@@ -80,144 +80,10 @@
                             android:textSize="@dimen/item_text_size_25"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="产品规格："/>
+                            android:text="物品备注："/>
                         <TextView
                             android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/spec"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装版型："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/ban_xing"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="产品类型："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/type"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装码号："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/size"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装颜色："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/color"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装面料："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/fabric"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装款式："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/style"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="服装廓形："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/profile"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="零售价格："/>
-                        <TextView
-                            android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/retailPrice"
+                            android:id="@+id/remark"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </LinearLayout>

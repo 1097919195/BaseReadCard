@@ -1,5 +1,7 @@
 package com.example.gxkj.cardnumbinding.bean;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2018/7/26 0026.
  */
@@ -26,6 +28,15 @@ public class GoodsData {
     private String qrcode;
     private String qrcode_content;
     private String qrcode_with_name;
+    private List<ImagesBean> images;
+
+    public List<ImagesBean> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImagesBean> images) {
+        this.images = images;
+    }
 
     public String get_id() {
         return _id;
@@ -89,5 +100,26 @@ public class GoodsData {
 
     public void setQrcode_with_name(String qrcode_with_name) {
         this.qrcode_with_name = qrcode_with_name;
+    }
+
+    public static class ImagesBean{
+        private String path;
+        private String relative_path;
+
+        public String getPath() {
+            return path;
+        }
+
+        public void setPath(String path) {
+            this.path = path;
+        }
+
+        public String getRelative_path() {
+            return relative_path;
+        }
+
+        public void setRelative_path(String relative_path) {
+            this.relative_path = relative_path;
+        }
     }
 }

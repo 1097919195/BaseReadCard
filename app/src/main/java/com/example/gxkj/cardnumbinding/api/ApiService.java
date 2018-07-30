@@ -6,6 +6,9 @@ import com.example.gxkj.cardnumbinding.bean.LoginTokenData;
 import com.example.gxkj.cardnumbinding.bean.SampleData;
 import com.example.gxkj.cardnumbinding.bean.HttpResponse;
 import com.example.gxkj.cardnumbinding.bean.StaffData;
+import com.example.gxkj.cardnumbinding.bean.StoreData;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -148,6 +151,19 @@ public interface ApiService {
     Observable<HttpResponse<LoginTokenData>> getTokenWithSignIn(
             @Field("name") String username,
             @Field("password") String password
+    );
+
+    //获取门店列表
+    @GET("api/mtm/shops_list")
+    Observable<HttpResponse<List<StoreData>>> getStoreData(
+    );
+
+    //绑定后的衣服分配给门店
+    @FormUrlEncoded
+    @POST("api/mtm/clothes/assign_to_shop")
+    Observable<HttpResponse> assignStore(
+            @Field("card_num") String num,
+            @Field("shop_id") String shopID
     );
 
 }

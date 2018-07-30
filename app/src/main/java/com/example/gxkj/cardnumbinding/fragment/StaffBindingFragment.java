@@ -142,7 +142,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
                 if (!AppConstant.STAFF_ID.equals("")) {
                     mPresenter.bindingCardWithStaff(AppConstant.CARD_NUMBER ,AppConstant.STAFF_ID);
                 }else {
-                    ToastUtil.showShort("请先确认产品");
+                    ToastUtil.showShort("请先确认员工");
                 }
             }else {
                 ToastUtil.showShort("当前卡号为空");
@@ -203,8 +203,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
 
         AppConstant.STAFF_ID = staffData.get_id();
 //        String relative = staffData.getAvatar().getRelative_image_path();
-//        LogUtils.loge(relative);
-//        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+relative);
+        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,staffData.getAvatar());
     }
 
     //绑卡成功操作
