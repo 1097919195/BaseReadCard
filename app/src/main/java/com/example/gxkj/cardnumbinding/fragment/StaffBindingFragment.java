@@ -165,11 +165,9 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
                         if (result != null) {
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
-                                String sUrl = URLEncoder.encode("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
-                                Md5Security.getMD5("http://weixin.qq.com/q/02A2Ru9QsudTk10000g07M");
-                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02E4ZU8osudTk10000g07W");
+                                mPresenter.getStaffDataRequest(result);
                             }else {
-                                mPresenter.getStaffDataRequest("http://weixin.qq.com/q/02E4ZU8osudTk10000g07W");
+                                mPresenter.getStaffDataRequest(result);
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));

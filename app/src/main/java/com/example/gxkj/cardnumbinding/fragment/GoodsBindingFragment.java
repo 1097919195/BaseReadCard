@@ -149,9 +149,9 @@ public class GoodsBindingFragment extends BaseFragment<GoodsBindingPresenter,Goo
                         if (result != null) {
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
-                                mPresenter.getGoodsDataRequest("http://weixin.qq.com/q/02lHrg98sudTk10000g07Y");
+                                mPresenter.getGoodsDataRequest(result);
                             }else {
-                                mPresenter.getGoodsDataRequest("http://weixin.qq.com/q/02lHrg98sudTk10000g07Y");
+                                mPresenter.getGoodsDataRequest(result);
                             }
                         } else {
                             ToastUtil.showShort(getString(R.string.scan_qrcode_failed));
