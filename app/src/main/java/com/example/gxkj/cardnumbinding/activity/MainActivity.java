@@ -440,26 +440,31 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
     //mtm用户列表获取
     @Override
     public void returnMtmDData(List<MtmData> mtmDataList) {
-        mtm_spinner.setVisibility(View.VISIBLE);
-        List<String> spinnerList = new ArrayList<String>();
-        for (MtmData mtmData : mtmDataList) {
-            spinnerList.add(mtmData.getName());
+        if (mtmDataList != null && mtmDataList.size() > 0) {
+            mtm_spinner.setVisibility(View.VISIBLE);
+            List<String> spinnerList = new ArrayList<String>();
+            for (MtmData mtmData : mtmDataList) {
+                spinnerList.add(mtmData.getName());
+            }
+            ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
+            myAdapter.setDropDownViewResource(R.layout.item_sipnner_type);//保持布局样式一致
+            mtm_spinner.setAdapter(myAdapter);
+            mtm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    mtmID = mtmDataList.get(i).getID();
+                    LogUtils.loge("用户对应的MtmID   " + mtmID);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+        } else {
+            ToastUtil.showShort("暂时没有分店");
         }
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
-        myAdapter.setDropDownViewResource(R.layout.item_sipnner_type);//保持布局样式一致
-        mtm_spinner.setAdapter(myAdapter);
-        mtm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                mtmID = mtmDataList.get(i).getID();
-                LogUtils.loge("用户对应的MtmID   "+mtmID);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
     }
 
     @Override
