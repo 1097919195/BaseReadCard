@@ -24,6 +24,18 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "false"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //apk命名
+            android.applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        //这里修改apk文件名
+                        def fileName = "UploadCardNum-${defaultConfig.versionName}.apk"
+                        output.outputFileName  = fileName//studio3.0中要这么写
+//                        output.outputFile = new File(outputFile.parent, fileName) //studio2.3
+                    }
+                }
+            }
         }
         debug{//调试
             buildConfigField "boolean", "LOG_DEBUG", "true"
