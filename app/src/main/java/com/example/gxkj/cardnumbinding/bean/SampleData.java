@@ -33,8 +33,8 @@ public class SampleData {
     private String num;//订单编号
     private String ban_xing;//版型
     private int type;//样衣类型
-    private int retailPrice;//零售价
-    private int costPrice;//成本价
+    private int retail_price;//零售价
+    private int cost_price;//成本价
     private String size;//码号
     private String color;//颜色
     private String fabric;//布料
@@ -91,28 +91,28 @@ public class SampleData {
         this.type = type;
     }
 
-    public int getRetailPrice() {
-        return retailPrice;
-    }
-
-    public void setRetailPrice(int retailPrice) {
-        this.retailPrice = retailPrice;
-    }
-
-    public int getCostPrice() {
-        return costPrice;
-    }
-
-    public void setCostPrice(int costPrice) {
-        this.costPrice = costPrice;
-    }
-
     public String getSize() {
         return size;
     }
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public int getRetail_price() {
+        return retail_price;
+    }
+
+    public void setRetail_price(int retail_price) {
+        this.retail_price = retail_price;
+    }
+
+    public int getCost_price() {
+        return cost_price;
+    }
+
+    public void setCost_price(int cost_price) {
+        this.cost_price = cost_price;
     }
 
     public String getColor() {

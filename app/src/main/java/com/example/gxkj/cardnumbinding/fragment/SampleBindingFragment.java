@@ -194,7 +194,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         fabric.setText(sampleData.getFabric());
         style.setText(sampleData.getStyle());
         profile.setText(sampleData.getProfile());
-        retailPrice.setText(String.valueOf(sampleData.getRetailPrice()));
+        retailPrice.setText(String.valueOf(sampleData.getRetail_price()));
 
         AppConstant.SAMPLE_ID = sampleData.get_id();
         RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());

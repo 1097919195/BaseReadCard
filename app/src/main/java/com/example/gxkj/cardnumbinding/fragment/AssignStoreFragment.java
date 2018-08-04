@@ -36,6 +36,7 @@ import com.aspsine.irecyclerview.universaladapter.recyclerview.CommonRecycleView
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -179,6 +180,15 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         });
     }
 
+    /** 判断是否为整数
+     * @param str 传入的字符串
+     * @return 是整数返回true,否则返回false
+     */
+    public static boolean isInteger(String str) {
+        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        return pattern.matcher(str).matches();
+    }
+
     private void initListener() {
         btnScan.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
@@ -196,7 +206,11 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
                                 @Override
                                 public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                                     if (input.toString().length() > 0) {
-                                        mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+                                        if (isInteger(input.toString())) {
+                                            mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+                                        }else {
+                                            ToastUtil.showShort("输入的值必须为整数");
+                                        }
                                     }else {
                                         mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
                                     }
