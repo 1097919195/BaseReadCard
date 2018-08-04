@@ -80,10 +80,10 @@
                             android:textSize="@dimen/item_text_size_25"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="产品规格："/>
+                            android:text="库存数量："/>
                         <TextView
                             android:textSize="@dimen/item_text_size_25"
-                            android:id="@+id/spec"
+                            android:id="@+id/inventory"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </LinearLayout>

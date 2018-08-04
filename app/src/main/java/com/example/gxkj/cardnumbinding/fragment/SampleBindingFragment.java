@@ -44,8 +44,8 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     TextView name;
     @BindView(R.id.num)
     TextView num;
-    @BindView(R.id.spec)
-    TextView spec;
+    @BindView(R.id.inventory)
+    TextView inventory;
     @BindView(R.id.ban_xing)
     TextView ban_xing;
     @BindView(R.id.type)
@@ -186,7 +186,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     public void returnGetSampleData(SampleData sampleData) {
         name.setText(sampleData.getName());
         num.setText(sampleData.getNum());
-        spec.setText(sampleData.getSpec());
+        inventory.setText(String.valueOf(sampleData.getInventory()));
         ban_xing.setText(sampleData.getBan_xing());
         type.setText(String.valueOf(sampleData.getType()));
         size.setText(sampleData.getSize());

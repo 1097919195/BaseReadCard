@@ -31,7 +31,6 @@ public class SampleData {
     private String _id;
     private String name;//样衣名称
     private String num;//订单编号
-    private String spec;//规格
     private String ban_xing;//版型
     private int type;//样衣类型
     private int retailPrice;//零售价
@@ -42,6 +41,15 @@ public class SampleData {
     private String style;//款式
     private String profile;//廓形
     private String image;//图片
+    private int inventory;//库存数量
+
+    public int getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
+    }
 
     public String get_id() {
         return _id;
@@ -65,14 +73,6 @@ public class SampleData {
 
     public void setNum(String num) {
         this.num = num;
-    }
-
-    public String getSpec() {
-        return spec;
-    }
-
-    public void setSpec(String spec) {
-        this.spec = spec;
     }
 
     public String getBan_xing() {

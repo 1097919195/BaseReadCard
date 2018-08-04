@@ -2,6 +2,7 @@ package com.example.gxkj.cardnumbinding.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.aspsine.irecyclerview.universaladapter.ViewHolderHelper;
 import com.aspsine.irecyclerview.universaladapter.recyclerview.OnItemClickListener;
 import com.example.gxkj.cardnumbinding.R;
@@ -62,6 +64,8 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     RecyclerView recyclerStore;
     @BindView(R.id.storeRefresh)
     TextView storeRefresh;
+    @BindView(R.id.shop_name)
+    TextView shop_name;
 
     List<StoreData> storeDatas = new ArrayList<>();
     CommonRecycleViewAdapter<StoreData> storeAdapter;
@@ -83,6 +87,7 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         initUSBStatus();
         initListener();
         initRxBus2();
+        shop_name.setVisibility(View.GONE);
         mPresenter.getStoreDataRequest();//获取门店列表
     }
 
@@ -114,11 +119,13 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
                 positionAgo = position;
 
                 //设置图片
-//                if (storeDatas.get(position).getImages() != null && storeDatas.get(position).getImages().size()>0) {
-//                    RxBus2.getInstance().post(AppConstant.RXBUS_STORE_PHOTO, AppConstant.IMAGE_DOMAIN_NAME + storeDatas.get(position).getImages().get(0).getRelative_path());
-//                }else {
-//                    imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
-//                }
+                if (storeDatas.get(position).getImages() != null && storeDatas.get(position).getImages().size()>0) {
+                    RxBus2.getInstance().post(AppConstant.RXBUS_STORE_PHOTO, AppConstant.IMAGE_DOMAIN_NAME + storeDatas.get(position).getImages().get(0).getRelative_path());
+                }else {
+                    imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
+                }
+                shop_name.setVisibility(View.VISIBLE);
+                shop_name.setText(storeDatas.get(position).getName());
             }
 
             @Override
@@ -182,7 +189,23 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         commit.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.STORE_ID.equals("")) {
-                    mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID);
+                    new MaterialDialog.Builder(getActivity())
+                            .title("分配的库存数量")
+                            //前2个一个是hint一个是预输入的文字
+                            .input("请输入需要分配的库存数量，默认是1件", "1", new MaterialDialog.InputCallback() {
+                                @Override
+                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+                                    if (input.toString().length() > 0) {
+                                        mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+                                    }else {
+                                        mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
+                                    }
+                                }
+                            })
+                            .negativeText("取消")
+                            .positiveColor(getResources().getColor(R.color.main_blue))
+                            .show();
+
                 } else {
                     ToastUtil.showShort("请先选择门店");
                 }

@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/20 0020.
  */
 
-public class AssignStorePresenter extends AssignStoreContract.Presenter{
+public class AssignStorePresenter extends AssignStoreContract.Presenter {
 
     @Override
     public void getStoreDataRequest() {
@@ -31,8 +31,8 @@ public class AssignStorePresenter extends AssignStoreContract.Presenter{
     }
 
     @Override
-    public void assignStoreRequest(String num, String id) {
-        mRxManage.add(mModel.assignStore(num,id).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+    public void assignStoreRequest(String num, String id, int inventory) {
+        mRxManage.add(mModel.assignStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
             @Override
             protected void _onNext(HttpResponse httpResponse) {
                 mView.returnAssignStore(httpResponse);

@@ -29,9 +29,9 @@ public class AssignStoreModel implements AssignStoreContract.Model {
     }
 
     @Override
-    public Observable<HttpResponse> assignStore(String num, String id) {
+    public Observable<HttpResponse> assignStore(String num, String id, int inventory) {
         return Api.getDefault(HostType.QUALITY_DATA)
-                .assignStore(num, id)
+                .assignStore(num, id, inventory)
                 .compose(RxSchedulers.io_main());
     }
 }

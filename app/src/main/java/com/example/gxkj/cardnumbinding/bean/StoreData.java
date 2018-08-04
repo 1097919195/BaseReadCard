@@ -18,7 +18,7 @@ public class StoreData {
     private String _id;
     private String name;
     private boolean isSelected;
-//    private List<ImagesBean> images;
+    private List<ImagesBean> images;
 
     public boolean isSelected() {
         return isSelected;
@@ -44,13 +44,13 @@ public class StoreData {
         this.name = name;
     }
 
-//    public List<ImagesBean> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<ImagesBean> images) {
-//        this.images = images;
-//    }
+    public List<ImagesBean> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImagesBean> images) {
+        this.images = images;
+    }
 
     public static class ImagesBean {
         /**

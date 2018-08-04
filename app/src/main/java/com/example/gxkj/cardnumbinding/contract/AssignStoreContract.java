@@ -19,7 +19,7 @@ public interface AssignStoreContract {
     interface Model extends BaseModel{
         Observable<List<StoreData>> getStoreData();
 
-        Observable<HttpResponse> assignStore(String num, String id);
+        Observable<HttpResponse> assignStore(String num, String id, int inventory);
     }
 
     interface View extends BaseView{
@@ -32,7 +32,7 @@ public interface AssignStoreContract {
 
         public abstract void getStoreDataRequest();
 
-        public abstract void assignStoreRequest(String num , String id);
+        public abstract void assignStoreRequest(String num , String id, int inventory);
     }
 
 
