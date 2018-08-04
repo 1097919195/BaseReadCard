@@ -160,8 +160,17 @@ public interface ApiService {
 
     //绑定后的衣服分配给门店
     @FormUrlEncoded
-    @POST("api/mtm/clothes/assign_to_shop")
+    @POST("api/mtm/clothes/out")
     Observable<HttpResponse> assignStore(
+            @Field("card_num") String num,
+            @Field("shop_id") String shopID,
+            @Field("inventory") int inventory
+    );
+
+    //入库（撤销分配）
+    @FormUrlEncoded
+    @POST("api/mtm/clothes/in")
+    Observable<HttpResponse> cancelAssignStore(
             @Field("card_num") String num,
             @Field("shop_id") String shopID,
             @Field("inventory") int inventory
