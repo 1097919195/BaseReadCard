@@ -34,4 +34,11 @@ public class AssignStoreModel implements AssignStoreContract.Model {
                 .assignStore(num, id, inventory)
                 .compose(RxSchedulers.io_main());
     }
+
+    @Override
+    public Observable<HttpResponse> backStore(String num, String id, int inventory) {
+        return Api.getDefault(HostType.QUALITY_DATA)
+                .backStore(num, id, inventory)
+                .compose(RxSchedulers.io_main());
+    }
 }

@@ -67,6 +67,8 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     TextView storeRefresh;
     @BindView(R.id.shop_name)
     TextView shop_name;
+    @BindView(R.id.backShop)
+    Button backShop;
 
     List<StoreData> storeDatas = new ArrayList<>();
     CommonRecycleViewAdapter<StoreData> storeAdapter;
@@ -190,12 +192,46 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     }
 
     private void initListener() {
+        //入库
+        backShop.setOnClickListener(v->{
+            if (!AppConstant.CARD_NUMBER.equals("")) {
+                if (!AppConstant.STORE_ID.equals("")) {
+                    new MaterialDialog.Builder(getActivity())
+                            .title("撤销入库的数量")
+                            //前2个一个是hint一个是预输入的文字
+                            .input("请输入需要入库的数量，默认是1件", "1", new MaterialDialog.InputCallback() {
+                                @Override
+                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+                                    if (input.toString().length() > 0) {
+                                        if (isInteger(input.toString())) {
+                                            mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+                                        }else {
+                                            ToastUtil.showShort("输入的值必须为整数");
+                                        }
+                                    }else {
+                                        mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
+                                    }
+                                }
+                            })
+                            .negativeText("取消")
+                            .positiveColor(getResources().getColor(R.color.main_blue))
+                            .show();
+
+                } else {
+                    ToastUtil.showShort("请先选择门店");
+                }
+            } else {
+                ToastUtil.showShort("当前卡号为空");
+            }
+        });
+
         btnScan.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
             startActivityForResult(intent, REQUEST_CODE_WECHATUSER);
 //            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
         });
 
+        //分配
         commit.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.STORE_ID.equals("")) {
@@ -272,7 +308,14 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     public void returnAssignStore(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
-        ToastUtil.showShort("assign store is OK");
+        ToastUtil.showShort("分配成功");
+    }
+
+    @Override
+    public void returnBackStore(HttpResponse httpResponse) {
+        AppConstant.CARD_NUMBER = "";
+        RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
+        ToastUtil.showShort("入库成功");
     }
 
     @Override

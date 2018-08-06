@@ -20,12 +20,16 @@ public interface AssignStoreContract {
         Observable<List<StoreData>> getStoreData();
 
         Observable<HttpResponse> assignStore(String num, String id, int inventory);
+
+        Observable<HttpResponse> backStore(String num, String id, int inventory);
     }
 
     interface View extends BaseView{
         void returnGetStoreData(List<StoreData> storeDataList);
 
         void returnAssignStore(HttpResponse httpResponse);
+
+        void returnBackStore(HttpResponse httpResponse);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
@@ -33,6 +37,8 @@ public interface AssignStoreContract {
         public abstract void getStoreDataRequest();
 
         public abstract void assignStoreRequest(String num , String id, int inventory);
+
+        public abstract void backStoreRequest(String num , String id, int inventory);
     }
 
 

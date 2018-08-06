@@ -44,4 +44,19 @@ public class AssignStorePresenter extends AssignStoreContract.Presenter {
             }
         }));
     }
+
+    @Override
+    public void backStoreRequest(String num, String id, int inventory) {
+        mRxManage.add(mModel.backStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+            @Override
+            protected void _onNext(HttpResponse httpResponse) {
+                mView.returnBackStore(httpResponse);
+            }
+
+            @Override
+            protected void _onError(String message) {
+                mView.showErrorTip(message);
+            }
+        }));
+    }
 }

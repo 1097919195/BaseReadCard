@@ -170,7 +170,7 @@ public interface ApiService {
     //入库（撤销分配）
     @FormUrlEncoded
     @POST("api/mtm/clothes/in")
-    Observable<HttpResponse> cancelAssignStore(
+    Observable<HttpResponse> backStore(
             @Field("card_num") String num,
             @Field("shop_id") String shopID,
             @Field("inventory") int inventory
