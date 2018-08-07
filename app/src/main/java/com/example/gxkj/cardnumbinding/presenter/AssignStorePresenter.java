@@ -32,7 +32,7 @@ public class AssignStorePresenter extends AssignStoreContract.Presenter {
 
     @Override
     public void assignStoreRequest(String num, String id, int inventory) {
-        mRxManage.add(mModel.assignStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+        mRxManage.add(mModel.assignStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, true) {
             @Override
             protected void _onNext(HttpResponse httpResponse) {
                 mView.returnAssignStore(httpResponse);
@@ -47,7 +47,7 @@ public class AssignStorePresenter extends AssignStoreContract.Presenter {
 
     @Override
     public void backStoreRequest(String num, String id, int inventory) {
-        mRxManage.add(mModel.backStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, false) {
+        mRxManage.add(mModel.backStore(num, id, inventory).subscribeWith(new RxSubscriber<HttpResponse>(mContext, true) {
             @Override
             protected void _onNext(HttpResponse httpResponse) {
                 mView.returnBackStore(httpResponse);
