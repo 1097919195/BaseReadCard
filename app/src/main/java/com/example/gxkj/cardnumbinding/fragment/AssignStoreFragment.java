@@ -114,7 +114,9 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         storeAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-                storeDatas.get(positionAgo).setSelected(false);
+                if (positionAgo < storeDatas.size()) {//防止刷新后造成数组越界
+                    storeDatas.get(positionAgo).setSelected(false);
+                }
                 storeDatas.get(position).setSelected(true);
                 AppConstant.STORE_ID = storeDatas.get(position).get_id();
                 ToastUtil.showShort("您当前选择的门店是 " + storeDatas.get(position).getName());
