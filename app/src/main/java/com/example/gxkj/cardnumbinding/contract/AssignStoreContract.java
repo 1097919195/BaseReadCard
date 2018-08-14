@@ -22,6 +22,8 @@ public interface AssignStoreContract {
         Observable<HttpResponse> assignStore(String num, String id, int inventory);
 
         Observable<HttpResponse> backStore(String num, String id, int inventory);
+
+        Observable<HttpResponse> unbindCard(String num);
     }
 
     interface View extends BaseView{
@@ -30,6 +32,8 @@ public interface AssignStoreContract {
         void returnAssignStore(HttpResponse httpResponse);
 
         void returnBackStore(HttpResponse httpResponse);
+
+        void returnUnbindCard(HttpResponse httpResponse);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
@@ -39,6 +43,8 @@ public interface AssignStoreContract {
         public abstract void assignStoreRequest(String num , String id, int inventory);
 
         public abstract void backStoreRequest(String num , String id, int inventory);
+
+        public abstract void unbindCardRequest(String num);
     }
 
 

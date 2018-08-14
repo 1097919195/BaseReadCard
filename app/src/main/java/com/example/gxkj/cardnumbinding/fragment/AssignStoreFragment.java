@@ -59,6 +59,8 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     Button btnScan;
     @BindView(R.id.commit)
     Button commit;
+    @BindView(R.id.unbind)
+    Button unbind;
     @BindView(R.id.imgWithProduct)
     ImageView imgWithProduct;
     @BindView(R.id.recyclerStore)
@@ -95,14 +97,14 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
     }
 
     private void initAdapter() {
-        storeAdapter = new CommonRecycleViewAdapter<StoreData>(getActivity(),R.layout.item_store_name,storeDatas) {
+        storeAdapter = new CommonRecycleViewAdapter<StoreData>(getActivity(), R.layout.item_store_name, storeDatas) {
             @Override
             public void convert(ViewHolderHelper helper, StoreData storeData) {
                 TextView storeName = helper.getView(R.id.storeName);
                 storeName.setText(storeData.getName());
                 if (storeData.isSelected()) {
                     storeName.setBackgroundColor(getResources().getColor(R.color.item_selector));
-                }else {
+                } else {
                     storeName.setBackgroundColor(getResources().getColor(R.color.item_unSelector));
                 }
             }
@@ -124,9 +126,9 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
                 positionAgo = position;
 
                 //设置图片
-                if (storeDatas.get(position).getImages() != null && storeDatas.get(position).getImages().size()>0) {
+                if (storeDatas.get(position).getImages() != null && storeDatas.get(position).getImages().size() > 0) {
                     RxBus2.getInstance().post(AppConstant.RXBUS_STORE_PHOTO, AppConstant.IMAGE_DOMAIN_NAME + storeDatas.get(position).getImages().get(0).getRelative_path());
-                }else {
+                } else {
                     imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
                 }
                 shop_name.setVisibility(View.VISIBLE);
@@ -184,9 +186,11 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         });
     }
 
-    /** 判断是否为整数
+    /**
+     * 判断是否为整数
+     *
      * @param str 传入的字符串
-     * @return 是整数返回true,否则返回false
+     * @return 是整数返回true, 否则返回false
      */
     public static boolean isInteger(String str) {
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
@@ -195,7 +199,7 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
 
     private void initListener() {
         //入库
-        backShop.setOnClickListener(v->{
+        backShop.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.STORE_ID.equals("")) {
                     new MaterialDialog.Builder(getActivity())
@@ -207,10 +211,10 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
                                     if (input.toString().length() > 0) {
                                         if (isInteger(input.toString())) {
                                             mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
-                                        }else {
+                                        } else {
                                             ToastUtil.showShort("输入的值必须为整数");
                                         }
-                                    }else {
+                                    } else {
                                         mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
                                     }
                                 }
@@ -246,10 +250,10 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
                                     if (input.toString().length() > 0) {
                                         if (isInteger(input.toString())) {
                                             mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
-                                        }else {
+                                        } else {
                                             ToastUtil.showShort("输入的值必须为整数");
                                         }
-                                    }else {
+                                    } else {
                                         mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
                                     }
                                 }
@@ -268,6 +272,25 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         });
 
         storeRefresh.setOnClickListener(v -> mPresenter.getStoreDataRequest());
+
+        //解绑卡号
+        unbind.setOnClickListener(v -> {
+            if (!AppConstant.CARD_NUMBER.equals("")) {
+                new MaterialDialog.Builder(getActivity())
+                        .title("您确定要解绑该卡吗")
+                        .onPositive((d, i) -> {
+                            mPresenter.unbindCardRequest(AppConstant.CARD_NUMBER);
+                        })
+                        .negativeText("取消")
+                        .positiveText("确定")
+                        .negativeColor(getResources().getColor(R.color.red))
+                        .show();
+
+            } else {
+                ToastUtil.showShort("当前卡号为空");
+            }
+
+        });
     }
 
     //获取二维码扫描结果处理
@@ -318,6 +341,13 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
         ToastUtil.showShort("入库成功");
+    }
+
+    @Override
+    public void returnUnbindCard(HttpResponse httpResponse) {
+        AppConstant.CARD_NUMBER = "";
+        RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
+        ToastUtil.showShort("解绑成功");
     }
 
     @Override

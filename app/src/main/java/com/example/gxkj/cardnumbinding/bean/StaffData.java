@@ -31,15 +31,6 @@ public class StaffData {
     private String position;//职位
     private String email;//邮箱
     private String num;//编号
-    private String avatar;//头像图片地址   这里面不是一个数组不能用集合表示
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
     public String get_id() {
         return _id;

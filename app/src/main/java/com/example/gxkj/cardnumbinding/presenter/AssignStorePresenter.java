@@ -59,4 +59,19 @@ public class AssignStorePresenter extends AssignStoreContract.Presenter {
             }
         }));
     }
+
+    @Override
+    public void unbindCardRequest(String num) {
+        mRxManage.add(mModel.unbindCard(num).subscribeWith(new RxSubscriber<HttpResponse>(mContext, true) {
+            @Override
+            protected void _onNext(HttpResponse httpResponse) {
+                mView.returnUnbindCard(httpResponse);
+            }
+
+            @Override
+            protected void _onError(String message) {
+                mView.showErrorTip(message);
+            }
+        }));
+    }
 }

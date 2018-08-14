@@ -201,7 +201,11 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
 
         AppConstant.STAFF_ID = staffData.get_id();
 //        String relative = staffData.getAvatar().getRelative_image_path();
-        RxBus2.getInstance().post(AppConstant.RXBUS_STAFF_PHOTO,staffData.getAvatar());
+//        if (staffData.getImage() != null) {
+//            RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+staffData.getImage().getRelative_path());
+//        }else {
+//            imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
+//        }
     }
 
     //绑卡成功操作

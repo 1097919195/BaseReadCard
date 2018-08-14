@@ -176,4 +176,11 @@ public interface ApiService {
             @Field("inventory") int inventory
     );
 
+    //解绑卡号
+    @FormUrlEncoded
+    @POST("api/mtm/cards/unbind")
+    Observable<HttpResponse> unbindCard(
+            @Field("card_num") String num
+    );
+
 }

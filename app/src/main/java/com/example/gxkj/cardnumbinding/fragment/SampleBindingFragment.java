@@ -197,7 +197,11 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         retailPrice.setText(String.valueOf(sampleData.getRetail_price()));
 
         AppConstant.SAMPLE_ID = sampleData.get_id();
-        RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage());
+        if (sampleData.getImage() != null) {
+            RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage().getRelative_path());
+        }else {
+            imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
+        }
     }
 
     @Override

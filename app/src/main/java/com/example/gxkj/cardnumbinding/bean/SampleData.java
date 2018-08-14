@@ -23,7 +23,6 @@ public class SampleData {
      * fabric : 1
      * style : 1
      * profile : 1
-     * image : images/clothes/clothes_1526799015_0SQRq7amhi.jpg
      */
 
     //  https://ts.npclo.com/images/clothes/clothes_1526799015_0SQRq7amhi.jpg
@@ -40,7 +39,7 @@ public class SampleData {
     private String fabric;//布料
     private String style;//款式
     private String profile;//廓形
-    private String image;//图片
+    private ImagesBean image;//图片
     private int inventory;//库存数量
 
     public int getInventory() {
@@ -147,11 +146,37 @@ public class SampleData {
         this.profile = profile;
     }
 
-    public String getImage() {
+    public ImagesBean getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(ImagesBean image) {
         this.image = image;
+    }
+
+    public static class ImagesBean {
+        /**
+         * path : https://ts.npclo.com/images/goods/goods_1532932887_NvawgTHxqg.jpg
+         * relative_path : /images/goods/goods_1532932887_NvawgTHxqg.jpg
+         */
+
+        private String path;
+        private String relative_path;
+
+        public String getPath() {
+            return path;
+        }
+
+        public void setPath(String path) {
+            this.path = path;
+        }
+
+        public String getRelative_path() {
+            return relative_path;
+        }
+
+        public void setRelative_path(String relative_path) {
+            this.relative_path = relative_path;
+        }
     }
 }
