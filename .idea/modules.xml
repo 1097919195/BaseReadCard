@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CardNumBinding.iml" filepath="$PROJECT_DIR$/CardNumBinding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BaseReadCard.iml" filepath="$PROJECT_DIR$/BaseReadCard.iml" />
+      <module fileurl="file://D:\gitdownProgram\BaseReadCard\CardNumBinding.iml" filepath="D:\gitdownProgram\BaseReadCard\CardNumBinding.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/common/common.iml" filepath="$PROJECT_DIR$/library/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
