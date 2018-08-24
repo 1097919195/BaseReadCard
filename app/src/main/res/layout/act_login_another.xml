@@ -76,6 +76,7 @@
                         android:src="@mipmap/username" />
 
                     <EditText
+                        android:singleLine="true"
                         android:textColorHint="@color/white"
                         android:id="@+id/input_username"
                         android:layout_width="0dp"
