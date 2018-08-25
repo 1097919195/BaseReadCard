@@ -77,7 +77,7 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
     public void initView() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);//底部导航栏覆盖activity
-//        initPermission();
+        initPermission();
         initUserInfo();
         initListener();
     }
