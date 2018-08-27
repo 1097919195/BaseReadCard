@@ -28,7 +28,7 @@ import io.reactivex.functions.Consumer;
  * Created by Administrator on 2018/5/25 0025.
  */
 
-public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,SampleBindingModel> implements SampleBindingContract.View{
+public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, SampleBindingModel> implements SampleBindingContract.View {
     public static final int REQUEST_CODE_WECHATUSER = 1201;
     private static final int REQUEST_CODE_CONTRACT = 1202;
     public static final String REDIRECT_URI = "redirect_uri";
@@ -74,7 +74,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
 
     @Override
     public void initPresenter() {
-        mPresenter.setVM(this,mModel);
+        mPresenter.setVM(this, mModel);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         mRxManager.on(AppConstant.RXBUS_SAMPLE_PHOTO, new Consumer<String>() {
             @Override
             public void accept(String imgStr) throws Exception {
-                ImageLoaderUtils.displayBigPhoto(getActivity(),imgWithProduct,imgStr);
+                ImageLoaderUtils.displayBigPhoto(getActivity(), imgWithProduct, imgStr);
             }
         });
 
@@ -131,18 +131,18 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     private void initListener() {
         btnScan.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
-            startActivityForResult(intent,REQUEST_CODE_WECHATUSER);
+            startActivityForResult(intent, REQUEST_CODE_WECHATUSER);
 //            mPresenter.getSampleDataRequest("http://weixin.qq.com/q/02gJC4lIIAdW210000g07x");
         });
 
         commit.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.SAMPLE_ID.equals("")) {
-                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER ,AppConstant.SAMPLE_ID);
-                }else {
+                    mPresenter.bindingCardWithCode(AppConstant.CARD_NUMBER, AppConstant.SAMPLE_ID);
+                } else {
                     ToastUtil.showShort("请先确认样衣");
                 }
-            }else {
+            } else {
                 ToastUtil.showShort("当前卡号为空");
             }
 
@@ -153,7 +153,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        LogUtils.loge(String.valueOf(requestCode)+"   "+String.valueOf(resultCode));
+        LogUtils.loge(String.valueOf(requestCode) + "   " + String.valueOf(resultCode));
         if (requestCode == REQUEST_CODE_WECHATUSER) {
             if (data != null) {
                 Bundle bundle = data.getExtras();
@@ -164,7 +164,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
                             LogUtils.loge("二维码解析====" + result);
                             if (result.contains("http")) {
                                 mPresenter.getSampleDataRequest(result);
-                            }else {
+                            } else {
                                 mPresenter.getSampleDataRequest(result);
                             }
                         } else {
@@ -197,9 +197,9 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
         retailPrice.setText(String.valueOf(sampleData.getRetail_price()));
 
         AppConstant.SAMPLE_ID = sampleData.get_id();
-        if (sampleData.getImage() != null) {
-            RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO,AppConstant.IMAGE_DOMAIN_NAME+sampleData.getImage().getRelative_path());
-        }else {
+        if (sampleData.getImage() != null && sampleData.getImage().size() > 0) {
+            RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO, AppConstant.IMAGE_DOMAIN_NAME + sampleData.getImage().get(0).getRelative_path());
+        } else {
             imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
         }
     }
@@ -207,7 +207,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter,S
     @Override
     public void returnBindingCardWithCode(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
-        RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER,"请刷卡");
+        RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
         ToastUtil.showShort("binding sample is OK");
     }
 

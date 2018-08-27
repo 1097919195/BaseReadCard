@@ -202,26 +202,28 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         backShop.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.STORE_ID.equals("")) {
-                    new MaterialDialog.Builder(getActivity())
-                            .title("撤销入库的数量")
-                            //前2个一个是hint一个是预输入的文字
-                            .input("请输入需要入库的数量，默认是1件", "1", new MaterialDialog.InputCallback() {
-                                @Override
-                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
-                                    if (input.toString().length() > 0) {
-                                        if (isInteger(input.toString())) {
-                                            mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
-                                        } else {
-                                            ToastUtil.showShort("输入的值必须为整数");
-                                        }
-                                    } else {
-                                        mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
-                                    }
-                                }
-                            })
-                            .negativeText("取消")
-                            .positiveColor(getResources().getColor(R.color.main_blue))
-                            .show();
+//                    new MaterialDialog.Builder(getActivity())
+//                            .title("撤销入库的数量")
+//                            //前2个一个是hint一个是预输入的文字
+//                            .input("请输入需要入库的数量，默认是1件", "1", new MaterialDialog.InputCallback() {
+//                                @Override
+//                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+//                                    if (input.toString().length() > 0) {
+//                                        if (isInteger(input.toString())) {
+//                                            mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+//                                        } else {
+//                                            ToastUtil.showShort("输入的值必须为整数");
+//                                        }
+//                                    } else {
+//                                        mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
+//                                    }
+//                                }
+//                            })
+//                            .negativeText("取消")
+//                            .positiveColor(getResources().getColor(R.color.main_blue))
+//                            .show();
+
+                    mPresenter.backStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
 
                 } else {
                     ToastUtil.showShort("请先选择门店");
@@ -241,26 +243,28 @@ public class AssignStoreFragment extends BaseFragment<AssignStorePresenter, Assi
         commit.setOnClickListener(v -> {
             if (!AppConstant.CARD_NUMBER.equals("")) {
                 if (!AppConstant.STORE_ID.equals("")) {
-                    new MaterialDialog.Builder(getActivity())
-                            .title("分配的库存数量")
-                            //前2个一个是hint一个是预输入的文字
-                            .input("请输入需要分配的库存数量，默认是1件", "1", new MaterialDialog.InputCallback() {
-                                @Override
-                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
-                                    if (input.toString().length() > 0) {
-                                        if (isInteger(input.toString())) {
-                                            mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
-                                        } else {
-                                            ToastUtil.showShort("输入的值必须为整数");
-                                        }
-                                    } else {
-                                        mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
-                                    }
-                                }
-                            })
-                            .negativeText("取消")
-                            .positiveColor(getResources().getColor(R.color.main_blue))
-                            .show();
+//                    new MaterialDialog.Builder(getActivity())
+//                            .title("分配的库存数量")
+//                            //前2个一个是hint一个是预输入的文字
+//                            .input("请输入需要分配的库存数量，默认是1件", "1", new MaterialDialog.InputCallback() {
+//                                @Override
+//                                public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+//                                    if (input.toString().length() > 0) {
+//                                        if (isInteger(input.toString())) {
+//                                            mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, Integer.parseInt(input.toString()));
+//                                        } else {
+//                                            ToastUtil.showShort("输入的值必须为整数");
+//                                        }
+//                                    } else {
+//                                        mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
+//                                    }
+//                                }
+//                            })
+//                            .negativeText("取消")
+//                            .positiveColor(getResources().getColor(R.color.main_blue))
+//                            .show();
+
+                    mPresenter.assignStoreRequest(AppConstant.CARD_NUMBER, AppConstant.STORE_ID, 1);
 
                 } else {
                     ToastUtil.showShort("请先选择门店");

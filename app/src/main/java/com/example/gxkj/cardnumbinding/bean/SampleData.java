@@ -39,7 +39,7 @@ public class SampleData {
     private String fabric;//布料
     private String style;//款式
     private String profile;//廓形
-    private ImagesBean image;//图片
+    private List<ImagesBean> image;//图片
     private int inventory;//库存数量
 
     public int getInventory() {
@@ -146,11 +146,11 @@ public class SampleData {
         this.profile = profile;
     }
 
-    public ImagesBean getImage() {
+    public List<ImagesBean> getImage() {
         return image;
     }
 
-    public void setImage(ImagesBean image) {
+    public void setImage(List<ImagesBean> image) {
         this.image = image;
     }
 
