@@ -27,6 +27,22 @@ public class SampleBindingPresenter extends SampleBindingContract.Presenter{
     }
 
     @Override
+    public void getSampleDataWithBarCodeRequest(String barCode) {
+        mRxManage.add(mModel.getSampleDataWithBarCode(barCode).subscribeWith(new RxSubscriber<SampleData>(mContext, true) {
+            @Override
+            protected void _onNext(SampleData sampleData) {
+                mView.returnGetSampleDataWithBarCode(sampleData);
+            }
+
+            @Override
+            protected void _onError(String message) {
+                mView.showErrorTip(message);
+
+            }
+        }));
+    }
+
+    @Override
     public void bindingCardWithCode(String num, String id) {
         mRxManage.add(mModel.bindingCardWithCode(num , id).subscribeWith(new RxSubscriber<HttpResponse>(mContext, true) {
             @Override

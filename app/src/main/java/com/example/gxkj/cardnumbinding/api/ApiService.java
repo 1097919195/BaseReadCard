@@ -100,11 +100,18 @@ public interface ApiService {
 //    );
 //
 
-    //获取样衣详情
+    //二维码获取样衣详情
     @FormUrlEncoded
     @POST("api/mtm/clothes/search")
     Observable<HttpResponse<SampleData>> getSampleData(
             @Field("c_qrcode_content") String id
+    );
+
+    //条码获取样衣详情
+    @FormUrlEncoded
+    @POST("api/mtm/clothes/search")
+    Observable<HttpResponse<SampleData>> getSampleDataWithBarCode(
+            @Field("c_num") String BarCode
     );
 
     //获取员工详情

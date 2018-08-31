@@ -23,6 +23,14 @@ public class SampleBindingModel implements SampleBindingContract.Model {
     }
 
     @Override
+    public Observable<SampleData> getSampleDataWithBarCode(String barCode) {
+        return Api.getDefault(HostType.QUALITY_DATA)
+                .getSampleDataWithBarCode(barCode)
+                .map(new Api.HttpResponseFunc<>())
+                .compose(RxSchedulers.io_main());
+    }
+
+    @Override
     public Observable<HttpResponse> bindingCardWithCode(String num, String id) {
         return Api.getDefault(HostType.QUALITY_DATA)
                 .bindingCardWithSample(num ,id)

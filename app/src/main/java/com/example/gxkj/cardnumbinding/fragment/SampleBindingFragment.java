@@ -2,7 +2,10 @@ package com.example.gxkj.cardnumbinding.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +18,16 @@ import com.example.gxkj.cardnumbinding.camera.CaptureActivity;
 import com.example.gxkj.cardnumbinding.contract.SampleBindingContract;
 import com.example.gxkj.cardnumbinding.model.SampleBindingModel;
 import com.example.gxkj.cardnumbinding.presenter.SampleBindingPresenter;
+import com.jakewharton.rxbinding2.view.RxView;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.jaydenxiao.common.base.BaseFragment;
 import com.jaydenxiao.common.baserx.RxBus2;
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
+import com.jaydenxiao.common.commonutils.KeyBordUtil;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.commonutils.ToastUtil;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -66,6 +74,8 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, 
     Button commit;
     @BindView(R.id.imgWithProduct)
     ImageView imgWithProduct;
+    @BindView(R.id.barCode)
+    EditText barCode;
 
     @Override
     protected int getLayoutResource() {
@@ -147,6 +157,19 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, 
             }
 
         });
+
+        RxTextView.textChanges(barCode)
+                .debounce(700, TimeUnit.MILLISECONDS)
+                .subscribe(new Consumer<CharSequence>() {
+                    @Override
+                    public void accept(CharSequence charSequence) throws Exception {
+                        if (!TextUtils.isEmpty(barCode.getEditableText())) {
+                            mPresenter.getSampleDataWithBarCodeRequest(barCode.getEditableText().toString());
+                            //关闭软键盘
+                            KeyBordUtil.hideSoftKeyboard(barCode);
+                        }
+                    }
+                });
     }
 
     //获取二维码扫描结果处理
@@ -182,8 +205,34 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, 
     }
 
 
+    //根据二维码
     @Override
     public void returnGetSampleData(SampleData sampleData) {
+        name.setText(sampleData.getName());
+        num.setText(sampleData.getNum());
+        inventory.setText(String.valueOf(sampleData.getInventory()));
+        ban_xing.setText(sampleData.getBan_xing());
+        type.setText(String.valueOf(sampleData.getType()));
+        size.setText(sampleData.getSize());
+        color.setText(sampleData.getColor());
+        fabric.setText(sampleData.getFabric());
+        style.setText(sampleData.getStyle());
+        profile.setText(sampleData.getProfile());
+        retailPrice.setText(String.valueOf(sampleData.getRetail_price()));
+
+        AppConstant.SAMPLE_ID = sampleData.get_id();
+        if (sampleData.getImage() != null && sampleData.getImage().size() > 0) {
+            RxBus2.getInstance().post(AppConstant.RXBUS_SAMPLE_PHOTO, AppConstant.IMAGE_DOMAIN_NAME + sampleData.getImage().get(0).getRelative_path());
+        } else {
+            imgWithProduct.setImageResource(R.mipmap.gxkj_logo);
+        }
+    }
+
+    //根据条码
+    @Override
+    public void returnGetSampleDataWithBarCode(SampleData sampleData) {
+        barCode.setText("");
+
         name.setText(sampleData.getName());
         num.setText(sampleData.getNum());
         inventory.setText(String.valueOf(sampleData.getInventory()));
@@ -223,6 +272,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, 
 
     @Override
     public void showErrorTip(String msg) {
+        barCode.setText("");
         ToastUtil.showShort(msg);
     }
 }

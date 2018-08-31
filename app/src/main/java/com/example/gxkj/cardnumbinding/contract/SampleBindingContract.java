@@ -16,18 +16,23 @@ public interface SampleBindingContract {
     interface Model extends BaseModel{
         Observable<SampleData> getSampleData(String code);
 
+        Observable<SampleData> getSampleDataWithBarCode(String barCode);
+
         Observable<HttpResponse> bindingCardWithCode(String num , String id);
     }
 
     interface View extends BaseView{
         void returnGetSampleData(SampleData sampleData);
 
+        void returnGetSampleDataWithBarCode(SampleData sampleData);
+
         void returnBindingCardWithCode(HttpResponse httpResponse);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
-
         public abstract void getSampleDataRequest(String code);
+
+        public abstract void getSampleDataWithBarCodeRequest(String barCode);
 
         public abstract void bindingCardWithCode(String num , String id);
     }

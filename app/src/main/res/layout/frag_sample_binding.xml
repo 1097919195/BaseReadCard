@@ -233,7 +233,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent">
 
-            <include layout="@layout/layout_frag_right_staffandsample" />
+            <include layout="@layout/layout_frag_right_sample" />
         </LinearLayout>
     </LinearLayout>
 
