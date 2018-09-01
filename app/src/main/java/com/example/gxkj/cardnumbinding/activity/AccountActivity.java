@@ -172,8 +172,8 @@ public class AccountActivity extends BaseActivity<AccountPresenter,AccountModel>
         SPUtils.setSharedStringData(AppApplication.getAppContext(), AppConstant.LOGIN_TOKEN, tokenData.getToken_type() + tokenData.getAccess_token());
         LogUtils.loge(tokenData.getAccess_token());
         ToastUtil.showShort("登录成功！");
-        finish();
         MainActivity.startAction(AccountActivity.this);
+        finish();
     }
 
     @Override
