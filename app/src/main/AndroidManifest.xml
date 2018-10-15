@@ -35,11 +35,13 @@
         android:roundIcon="@mipmap/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".activity.SplashActivity"
+            android:screenOrientation="landscape">
 
         </activity>
 
-        <activity android:name=".activity.AccountActivity" >
+        <activity android:name=".activity.AccountActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,7 +67,8 @@
                 android:resource="@xml/device_filter" />
         </activity>
 
-        <activity android:name="com.example.gxkj.cardnumbinding.camera.CaptureActivity" />
+        <activity android:name="com.example.gxkj.cardnumbinding.camera.CaptureActivity"
+            android:screenOrientation="landscape"/>
 
     </application>
 
