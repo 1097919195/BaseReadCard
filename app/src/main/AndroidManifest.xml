@@ -41,6 +41,7 @@
         </activity>
 
         <activity android:name=".activity.AccountActivity"
+            android:theme="@style/AppWelcome.wallpaper"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
