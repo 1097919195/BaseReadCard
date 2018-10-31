@@ -27,7 +27,11 @@ public class AccountPresenter extends AccountContract.Presenter{
 
             @Override
             protected void _onError(String message) {
-                mView.showErrorTip(message);
+                if (message == "token过期") {
+                    mView.showErrorTip("账号或者密码错误");
+                }else {
+                    mView.showErrorTip(message);
+                }
             }
         }));
     }
