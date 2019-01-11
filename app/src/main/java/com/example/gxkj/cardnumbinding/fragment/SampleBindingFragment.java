@@ -257,7 +257,7 @@ public class SampleBindingFragment extends BaseFragment<SampleBindingPresenter, 
     public void returnBindingCardWithCode(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER, "请刷卡");
-        ToastUtil.showShort("binding sample is OK");
+        ToastUtil.showShort("样衣绑定成功");
     }
 
     @Override

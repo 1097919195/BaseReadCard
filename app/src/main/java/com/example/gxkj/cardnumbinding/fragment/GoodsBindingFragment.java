@@ -189,7 +189,7 @@ public class GoodsBindingFragment extends BaseFragment<GoodsBindingPresenter,Goo
     public void returnBindingCardWithGoods(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER,"请刷卡");
-        ToastUtil.showShort("binding goods is OK");
+        ToastUtil.showShort("物品绑定成功");
     }
 
     @Override

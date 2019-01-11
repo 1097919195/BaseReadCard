@@ -213,7 +213,7 @@ public class StaffBindingFragment extends BaseFragment<StaffBindingPresenter,Sta
     public void returnBindingCardWithStaff(HttpResponse httpResponse) {
         AppConstant.CARD_NUMBER = "";
         RxBus2.getInstance().post(AppConstant.CLEAR_CARD_NUMBER,"请刷卡");
-        ToastUtil.showShort("binding staff is OK");
+        ToastUtil.showShort("员工绑定成功");
     }
 
     @Override
