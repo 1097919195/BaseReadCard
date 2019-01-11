@@ -434,7 +434,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
     //卡号分配
     @Override
     public void returnAssignCardNumData(HttpResponse httpResponse) {
-        ToastUtil.showShort("assign  OK");
+        ToastUtil.showShort("分配成功");
     }
 
     //mtm用户列表获取
