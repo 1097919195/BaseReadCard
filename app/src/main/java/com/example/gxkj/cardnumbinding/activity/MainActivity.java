@@ -159,7 +159,6 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
 
@@ -440,6 +439,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
     //mtm用户列表获取
     @Override
     public void returnMtmDData(List<MtmData> mtmDataList) {
+        LogUtils.loge("mtmDataList==" + mtmDataList.size());
         if (mtmDataList != null && mtmDataList.size() > 0) {
             mtm_spinner.setVisibility(View.VISIBLE);
             List<String> spinnerList = new ArrayList<String>();
@@ -449,6 +449,7 @@ public class MainActivity extends BaseActivity<UploadCardNumPresenter, UploadCar
             ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this, R.layout.item_sipnner_type, R.id.tv_sipnner, spinnerList);
             myAdapter.setDropDownViewResource(R.layout.item_sipnner_type);//保持布局样式一致
             mtm_spinner.setAdapter(myAdapter);
+
             mtm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
